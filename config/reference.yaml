@@ -1,0 +1,25 @@
+# Reference data the platform maintains itself: geographies and how they are commonly named.
+# (A standard list: ISO names, codes and the obvious adjectives; users still say things it lacks.)
+geographies:
+  DE: [Germany, German, DE]
+  US: [United States, USA, US, American]
+  GB: [United Kingdom, UK, British]
+  FR: [France, French]
+  JP: [Japan, Japanese]
+  CN: [China, Chinese]
+  IN: [India, Indian]
+  BR: [Brazil, Brazilian]
+  IT: [Italy, Italian]
+  ES: [Spain, Spanish]
+  NL: [Netherlands, Dutch]
+  SE: [Sweden, Swedish]
+  PL: [Poland, Polish]
+  CA: [Canada, Canadian]
+  AU: [Australia, Australian]
+  WW: [Worldwide, global, world]
+# geographies the catalogue does not cover: a query naming one is answered "not covered", not with a neighbour
+not_covered: [Liechtenstein, Andorra, Tuvalu, Bhutan, Monaco, San Marino, Malta, Iceland, Luxembourg, Estonia,
+              Latvia, Lithuania, Nepal, Laos, Fiji, Samoa, Belize, Kosovo, Montenegro, Moldova]
+stopwords: [the, a, an, of, in, on, for, to, what, was, is, were, how, many, much, by, at, as, and, with, which,
+            per, from, did, does, do, there, are, be, number, total, value, level, give, me, tell, statistic,
+            according, published, latest, figure, show, about, s]

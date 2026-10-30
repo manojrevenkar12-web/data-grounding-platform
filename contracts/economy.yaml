@@ -1,0 +1,111 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: statistics-economy
+name: 'Statistics: economy'
+version: 1.0.0
+status: active
+domain: economy
+description:
+  purpose: Verified economy statistics for the grounding API, the MCP server and the research assistant.
+  limitations: Forecast years are model estimates and are flagged; values are revised when sources revise.
+  usage: Quote with the citation returned by the API; do not redistribute the dataset.
+schema:
+- name: statistic_values
+  physicalName: raw_economy
+  logicalType: object
+  properties:
+  - name: stat_id
+    logicalType: string
+    required: true
+    primaryKey: true
+    primaryKeyPosition: 1
+  - name: metric
+    logicalType: string
+    required: true
+  - name: geo
+    logicalType: string
+    required: true
+    logicalTypeOptions:
+      pattern: ^[A-Z]{2}$
+  - name: topic
+    logicalType: string
+    required: true
+  - name: title
+    logicalType: string
+    required: true
+  - name: keywords
+    logicalType: array
+    required: false
+  - name: unit
+    logicalType: string
+    required: true
+  - name: premium
+    logicalType: boolean
+    required: true
+  - name: source
+    logicalType: string
+    required: true
+  - name: year
+    logicalType: integer
+    required: true
+    primaryKey: true
+    primaryKeyPosition: 2
+    logicalTypeOptions:
+      minimum: 2000
+      maximum: 2040
+  - name: value
+    logicalType: number
+    required: true
+  - name: is_forecast
+    logicalType: boolean
+    required: true
+  - name: version
+    logicalType: integer
+    required: true
+    primaryKey: true
+    primaryKeyPosition: 3
+  - name: published_at
+    logicalType: date
+    required: true
+  quality:
+  - type: library
+    rule: nullCheck
+    element: value
+    mustBe: 0
+    description: no missing values
+  - type: custom
+    engine: dgp
+    implementation: units_match_registry
+    description: a metric keeps its unit; a unit change is a new major version
+  - type: custom
+    engine: dgp
+    implementation: version_increases
+    description: a revision has a higher version than the one it replaces
+sla:
+  properties:
+  - property: latency
+    value: 1
+    unit: d
+    element: statistic_values.published_at
+    description: a revision is queryable within a day of publication
+team:
+  name: macro-economics
+  members:
+  - username: macro-economics-lead
+    role: owner
+support:
+- channel: '#data-economy'
+  tool: slack
+  scope: issues
+customProperties:
+- property: units
+  value:
+    inflation_rate: percent
+    gdp: billion USD
+    unemployment_rate: percent
+  description: registered unit per metric
+- property: consumers
+  value:
+  - grounding-api
+  - mcp-server
+  - research-assistant

@@ -1,0 +1,13 @@
+# The release gate: what must hold before a change to the platform or its product decisions ships.
+# `left`/`right` are paths into reports/results.json; `right` may be a number.
+checks:
+  - {name: refused exactly the deliveries that would break consumers, left: truth.deliveries.production.refused_exactly_the_breaking, op: "==", right: true}
+  - {name: dbt models and tests pass, left: truth.deliveries.production.dbt_ok, op: "==", right: true}
+  - {name: no premium value reaches a plan without premium, left: truth.premium_leaks, op: "<=", right: 0}
+  - {name: the platform gives at most a third of the wrong numbers an assistant gives alone, left: evaluation.variants.today.summary.wrong_number_share, op: "<=", right: evaluation.variants.no_platform.summary.wrong_number_share, factor: 0.34}
+  - {name: the audit estimate of the North Star covers the truth, left: truth.audit_interval_covers_truth, op: "==", right: true}
+  - {name: answers as of a date earn their keep, left: evaluation.variants.without_as_of.delta.stale.per_week, op: ">", right: 0}
+  - {name: "'not in your plan' earns its keep", left: evaluation.variants.without_entitlement_answers.delta.wrong_number.per_week, op: ">", right: 0}
+  - {name: the planned bets together keep the guardrails, left: plan.summary.wrong_number_share, op: "<=", right: 0.2}
+  - {name: the planned bets together add trust-weighted answers, left: plan.delta.value.low, op: ">", right: 0}
+  - {name: p95 latency within the SLO, left: observed.guardrails.latency_p95_ms, op: "<=", right: 250}

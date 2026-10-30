@@ -1,0 +1,13 @@
+name: grounding
+version: "1.0.0"
+config-version: 2
+profile: grounding
+model-paths: ["models"]
+test-paths: ["tests"]
+target-path: "../build/dbt/target"
+log-path: "../build/dbt/logs"
+packages-install-path: "../build/dbt/packages"
+models:
+  grounding:
+    staging: {+materialized: view}
+    marts: {+materialized: table}

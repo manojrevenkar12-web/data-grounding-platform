@@ -1,0 +1,1296 @@
+{
+  "observed": {
+    "weeks": 12,
+    "north_star": {
+      "estimate_per_week": 18581,
+      "interval_per_week": [
+        18041,
+        19077
+      ],
+      "audited": 841,
+      "audited_correct": 677,
+      "accuracy_estimate": 0.805,
+      "accuracy_interval": [
+        0.7816,
+        0.8265
+      ]
+    },
+    "drivers": {
+      "sessions_per_week": 23938,
+      "searches_per_week": 25812,
+      "zero_result_share": 0.0046,
+      "rephrased_share": 0.0783,
+      "fetch_ok_share": 0.8984,
+      "fetch_status": {
+        "not_entitled": 2014,
+        "ok": 27698,
+        "no_such_year": 1118
+      }
+    },
+    "guardrails": {
+      "latency_p95_ms": 80.1,
+      "cost_per_week_eur": 33.51,
+      "cost_per_fetch_eur": 0.0013,
+      "wrong_number_tickets_per_week": 195.0,
+      "budget_exhausted_sessions": 0
+    },
+    "top_ticketed_statistics": [
+      {
+        "stat_id": "beer_sales-AU",
+        "tickets": 41
+      },
+      {
+        "stat_id": "air_passengers-AU",
+        "tickets": 25
+      },
+      {
+        "stat_id": "coffee_consumption-AU",
+        "tickets": 16
+      },
+      {
+        "stat_id": "fintech_users-AU",
+        "tickets": 14
+      },
+      {
+        "stat_id": "gaming_revenue-AU",
+        "tickets": 11
+      }
+    ],
+    "clients": {
+      "claude": 8921,
+      "research_assistant": 7952,
+      "copilot": 6366,
+      "api_direct": 3963,
+      "n8n": 1523
+    },
+    "producers": {
+      "deliveries": 77,
+      "refused": 8,
+      "refusal_reasons": {
+        "value is required and missing": 6,
+        "unknown properties": 4,
+        "smartphone_users is registered in 'million', delivered in 'units'": 1,
+        "cloud_spend is registered in 'billion USD', delivered in 'units'": 1,
+        "wine_consumption is registered in 'million liters', delivered in 'units'": 1
+      },
+      "fixed_after_refusal": 8,
+      "days_refused_to_live_median": 4.0
+    },
+    "producers_selfserve": {
+      "deliveries": 70,
+      "refused": 1,
+      "refusal_reasons": {
+        "unknown properties": 1,
+        "value is required and missing": 1
+      },
+      "fixed_after_refusal": 1,
+      "days_refused_to_live_median": 0.3
+    }
+  },
+  "truth": {
+    "production": {
+      "questions": 287250,
+      "answers": 309740,
+      "correct_per_week": 18235,
+      "correct_share": 0.7618,
+      "wrong_number_share": 0.1915,
+      "stale_share": 0.0003,
+      "missed_share": 0.016,
+      "declined_right": 26560,
+      "rephrased": 22490,
+      "cited_wrong_numbers": 58160,
+      "latency_p95_ms": 98.9,
+      "cost_eur": 402.09,
+      "cost_per_correct_eur": 0.00184,
+      "tickets": 2340,
+      "by_kind": {
+        "paraphrase": {
+          "correct": 5837,
+          "wrong_number": 2143,
+          "missed": 356,
+          "stale": 1
+        },
+        "plain": {
+          "correct": 10686,
+          "wrong_number": 1636,
+          "missed": 120,
+          "stale": 7
+        },
+        "premium": {
+          "wrong_number": 444,
+          "correct": 1750,
+          "declined_right": 1417
+        },
+        "uncovered": {
+          "wrong_number": 1005,
+          "declined_right": 1239
+        },
+        "forecast": {
+          "correct": 1805,
+          "missed": 11,
+          "wrong_number": 267
+        },
+        "as_of": {
+          "correct": 1804,
+          "wrong_number": 436,
+          "missed": 10
+        }
+      },
+      "weeks": 12
+    },
+    "north_star_per_week": 18235,
+    "deliveries": {
+      "production": {
+        "breaking": 8,
+        "refused": 8,
+        "refused_exactly_the_breaking": true,
+        "dbt_ok": true
+      },
+      "selfserve": {
+        "breaking": 1,
+        "refused": 1,
+        "refused_exactly_the_breaking": true,
+        "dbt_ok": true
+      }
+    },
+    "premium_leaks": 0,
+    "audit_interval_covers_truth": true
+  },
+  "evaluation": {
+    "window_weeks": 4,
+    "variants": {
+      "today": {
+        "summary": {
+          "questions": 97100,
+          "answers": 104850,
+          "correct_per_week": 18430,
+          "correct_share": 0.7592,
+          "wrong_number_share": 0.1942,
+          "stale_share": 0.0003,
+          "missed_share": 0.0175,
+          "declined_right": 8910,
+          "rephrased": 7750,
+          "cited_wrong_numbers": 19960,
+          "latency_p95_ms": 99.4,
+          "cost_eur": 136.13,
+          "cost_per_correct_eur": 0.00185,
+          "tickets": 880,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 578,
+              "correct": 3606,
+              "missed": 50,
+              "stale": 3
+            },
+            "paraphrase": {
+              "correct": 1949,
+              "wrong_number": 700,
+              "missed": 125
+            },
+            "uncovered": {
+              "wrong_number": 331,
+              "declined_right": 435
+            },
+            "forecast": {
+              "correct": 553,
+              "wrong_number": 90,
+              "missed": 4
+            },
+            "as_of": {
+              "wrong_number": 196,
+              "correct": 687,
+              "missed": 4
+            },
+            "premium": {
+              "correct": 577,
+              "declined_right": 456,
+              "wrong_number": 141
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "wrong_number": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "stale": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "value": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          }
+        }
+      },
+      "no_platform": {
+        "summary": {
+          "questions": 97100,
+          "answers": 97100,
+          "correct_per_week": 0,
+          "correct_share": 0.0,
+          "wrong_number_share": 0.9126,
+          "stale_share": 0.0,
+          "missed_share": 0.0763,
+          "declined_right": 1080,
+          "rephrased": 0,
+          "cited_wrong_numbers": 0,
+          "latency_p95_ms": null,
+          "cost_eur": 0.0,
+          "cost_per_correct_eur": 0.0,
+          "tickets": 0,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 3652,
+              "missed": 329
+            },
+            "paraphrase": {
+              "wrong_number": 2215,
+              "missed": 219
+            },
+            "uncovered": {
+              "wrong_number": 696,
+              "declined_right": 70
+            },
+            "forecast": {
+              "wrong_number": 559,
+              "missed": 49
+            },
+            "as_of": {
+              "wrong_number": 721,
+              "missed": 74
+            },
+            "premium": {
+              "wrong_number": 1018,
+              "missed": 70,
+              "declined_right": 38
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": -18430,
+            "low": -20635,
+            "high": -16428
+          },
+          "wrong_number": {
+            "per_week": 17062,
+            "low": 15345,
+            "high": 18893
+          },
+          "stale": {
+            "per_week": -8,
+            "low": -15,
+            "high": -2
+          },
+          "value": {
+            "per_week": -69595,
+            "low": -77328,
+            "high": -62406
+          }
+        }
+      },
+      "facets": {
+        "summary": {
+          "questions": 97100,
+          "answers": 104850,
+          "correct_per_week": 18430,
+          "correct_share": 0.7592,
+          "wrong_number_share": 0.181,
+          "stale_share": 0.0003,
+          "missed_share": 0.0175,
+          "declined_right": 10290,
+          "rephrased": 7750,
+          "cited_wrong_numbers": 16680,
+          "latency_p95_ms": 98.8,
+          "cost_eur": 133.06,
+          "cost_per_correct_eur": 0.00181,
+          "tickets": 720,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 578,
+              "correct": 3606,
+              "missed": 50,
+              "stale": 3
+            },
+            "paraphrase": {
+              "correct": 1949,
+              "wrong_number": 700,
+              "missed": 125
+            },
+            "uncovered": {
+              "declined_right": 573,
+              "wrong_number": 193
+            },
+            "forecast": {
+              "correct": 553,
+              "wrong_number": 90,
+              "missed": 4
+            },
+            "as_of": {
+              "wrong_number": 196,
+              "correct": 687,
+              "missed": 4
+            },
+            "premium": {
+              "correct": 577,
+              "declined_right": 456,
+              "wrong_number": 141
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "wrong_number": {
+            "per_week": -345,
+            "low": -438,
+            "high": -258
+          },
+          "stale": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "value": {
+            "per_week": 1035,
+            "low": 772,
+            "high": 1312
+          }
+        }
+      },
+      "glossary": {
+        "summary": {
+          "questions": 97100,
+          "answers": 97810,
+          "correct_per_week": 20925,
+          "correct_share": 0.862,
+          "wrong_number_share": 0.0354,
+          "stale_share": 0.0003,
+          "missed_share": 0.0019,
+          "declined_right": 10430,
+          "rephrased": 710,
+          "cited_wrong_numbers": 1310,
+          "latency_p95_ms": 98.7,
+          "cost_eur": 124.09,
+          "cost_per_correct_eur": 0.00148,
+          "tickets": 80,
+          "by_kind": {
+            "plain": {
+              "correct": 3958,
+              "wrong_number": 28,
+              "missed": 6,
+              "stale": 3
+            },
+            "paraphrase": {
+              "correct": 2393,
+              "missed": 11,
+              "wrong_number": 70
+            },
+            "uncovered": {
+              "declined_right": 573,
+              "wrong_number": 193
+            },
+            "forecast": {
+              "correct": 604,
+              "wrong_number": 4,
+              "missed": 1
+            },
+            "as_of": {
+              "correct": 791,
+              "wrong_number": 10,
+              "missed": 1
+            },
+            "premium": {
+              "correct": 624,
+              "declined_right": 470,
+              "wrong_number": 41
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "facets",
+        "delta": {
+          "correct": {
+            "per_week": 2495,
+            "low": 2197,
+            "high": 2830
+          },
+          "wrong_number": {
+            "per_week": -3880,
+            "low": -4425,
+            "high": -3422
+          },
+          "stale": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "value": {
+            "per_week": 14135,
+            "low": 12472,
+            "high": 16093
+          }
+        }
+      },
+      "selfserve_contracts": {
+        "summary": {
+          "questions": 97100,
+          "answers": 104850,
+          "correct_per_week": 18438,
+          "correct_share": 0.7595,
+          "wrong_number_share": 0.1942,
+          "stale_share": 0.0,
+          "missed_share": 0.0175,
+          "declined_right": 8910,
+          "rephrased": 7750,
+          "cited_wrong_numbers": 19930,
+          "latency_p95_ms": 99.4,
+          "cost_eur": 136.13,
+          "cost_per_correct_eur": 0.00185,
+          "tickets": 880,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 578,
+              "correct": 3609,
+              "missed": 50
+            },
+            "paraphrase": {
+              "correct": 1949,
+              "wrong_number": 700,
+              "missed": 125
+            },
+            "uncovered": {
+              "wrong_number": 331,
+              "declined_right": 435
+            },
+            "forecast": {
+              "correct": 553,
+              "wrong_number": 90,
+              "missed": 4
+            },
+            "as_of": {
+              "wrong_number": 196,
+              "correct": 687,
+              "missed": 4
+            },
+            "premium": {
+              "correct": 577,
+              "declined_right": 456,
+              "wrong_number": 141
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": 8,
+            "low": 2,
+            "high": 15
+          },
+          "wrong_number": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "stale": {
+            "per_week": -8,
+            "low": -15,
+            "high": -2
+          },
+          "value": {
+            "per_week": 30,
+            "low": 10,
+            "high": 60
+          }
+        }
+      },
+      "cache": {
+        "summary": {
+          "questions": 97100,
+          "answers": 104850,
+          "correct_per_week": 18430,
+          "correct_share": 0.7592,
+          "wrong_number_share": 0.1942,
+          "stale_share": 0.0003,
+          "missed_share": 0.0175,
+          "declined_right": 8910,
+          "rephrased": 7750,
+          "cited_wrong_numbers": 19960,
+          "latency_p95_ms": 89.8,
+          "cost_eur": 104.58,
+          "cost_per_correct_eur": 0.00142,
+          "tickets": 880,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 578,
+              "correct": 3606,
+              "missed": 50,
+              "stale": 3
+            },
+            "paraphrase": {
+              "correct": 1949,
+              "wrong_number": 700,
+              "missed": 125
+            },
+            "uncovered": {
+              "wrong_number": 331,
+              "declined_right": 435
+            },
+            "forecast": {
+              "correct": 553,
+              "wrong_number": 90,
+              "missed": 4
+            },
+            "as_of": {
+              "wrong_number": 196,
+              "correct": 687,
+              "missed": 4
+            },
+            "premium": {
+              "correct": 577,
+              "declined_right": 456,
+              "wrong_number": 141
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "wrong_number": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "stale": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "value": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          }
+        }
+      },
+      "without_as_of": {
+        "summary": {
+          "questions": 97100,
+          "answers": 104850,
+          "correct_per_week": 17720,
+          "correct_share": 0.73,
+          "wrong_number_share": 0.1942,
+          "stale_share": 0.0274,
+          "missed_share": 0.0175,
+          "declined_right": 8910,
+          "rephrased": 7750,
+          "cited_wrong_numbers": 22800,
+          "latency_p95_ms": 99.4,
+          "cost_eur": 136.13,
+          "cost_per_correct_eur": 0.00192,
+          "tickets": 980,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 578,
+              "correct": 3606,
+              "missed": 50,
+              "stale": 3
+            },
+            "paraphrase": {
+              "correct": 1949,
+              "wrong_number": 700,
+              "missed": 125
+            },
+            "uncovered": {
+              "wrong_number": 331,
+              "declined_right": 435
+            },
+            "forecast": {
+              "correct": 553,
+              "wrong_number": 90,
+              "missed": 4
+            },
+            "as_of": {
+              "wrong_number": 196,
+              "correct": 403,
+              "stale": 284,
+              "missed": 4
+            },
+            "premium": {
+              "correct": 577,
+              "declined_right": 456,
+              "wrong_number": 141
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": -710,
+            "low": -825,
+            "high": -605
+          },
+          "wrong_number": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "stale": {
+            "per_week": 710,
+            "low": 605,
+            "high": 825
+          },
+          "value": {
+            "per_week": -2840,
+            "low": -3300,
+            "high": -2420
+          }
+        }
+      },
+      "without_entitlement_answers": {
+        "summary": {
+          "questions": 97100,
+          "answers": 104700,
+          "correct_per_week": 18400,
+          "correct_share": 0.758,
+          "wrong_number_share": 0.2266,
+          "stale_share": 0.0003,
+          "missed_share": 0.0103,
+          "declined_right": 6260,
+          "rephrased": 7600,
+          "cited_wrong_numbers": 19950,
+          "latency_p95_ms": 99.4,
+          "cost_eur": 135.93,
+          "cost_per_correct_eur": 0.00185,
+          "tickets": 880,
+          "by_kind": {
+            "plain": {
+              "wrong_number": 594,
+              "correct": 3605,
+              "missed": 33,
+              "stale": 3
+            },
+            "paraphrase": {
+              "correct": 1939,
+              "wrong_number": 752,
+              "missed": 71
+            },
+            "uncovered": {
+              "wrong_number": 356,
+              "declined_right": 410
+            },
+            "forecast": {
+              "correct": 552,
+              "wrong_number": 92,
+              "missed": 2
+            },
+            "as_of": {
+              "wrong_number": 198,
+              "correct": 687,
+              "missed": 2
+            },
+            "premium": {
+              "correct": 577,
+              "declined_right": 216,
+              "wrong_number": 381
+            }
+          },
+          "weeks": 4,
+          "premium_leaks": 0
+        },
+        "measured_against": "today",
+        "delta": {
+          "correct": {
+            "per_week": -30,
+            "low": -45,
+            "high": -18
+          },
+          "wrong_number": {
+            "per_week": 842,
+            "low": 758,
+            "high": 938
+          },
+          "stale": {
+            "per_week": 0,
+            "low": 0,
+            "high": 0
+          },
+          "value": {
+            "per_week": -2558,
+            "low": -2850,
+            "high": -2298
+          }
+        }
+      }
+    }
+  },
+  "glossary": {
+    "metrics": {
+      "hotel_nights": [
+        "accommodation",
+        "hotels"
+      ],
+      "cinema_admissions": [
+        "attendance",
+        "movie",
+        "tickets",
+        "visits"
+      ],
+      "bike_sales": [
+        "bikes",
+        "e-bike",
+        "sold"
+      ],
+      "electricity_price": [
+        "bill",
+        "cost",
+        "energy",
+        "homes",
+        "kwh",
+        "residential"
+      ],
+      "fintech_users": [
+        "cashless",
+        "e-wallet",
+        "paying"
+      ],
+      "beer_sales": [
+        "consumed"
+      ],
+      "coffee_consumption": [
+        "demand",
+        "intake"
+      ],
+      "ev_sales": [
+        "e-car",
+        "registrations"
+      ],
+      "gdp": [
+        "economic",
+        "economy",
+        "national",
+        "output",
+        "size"
+      ],
+      "air_passengers": [
+        "flight",
+        "flying",
+        "traffic"
+      ],
+      "gaming_revenue": [
+        "games",
+        "industry"
+      ],
+      "unemployment_rate": [
+        "joblessness",
+        "labour",
+        "slack",
+        "unemployed"
+      ],
+      "online_ad_spend": [
+        "marketing"
+      ],
+      "smartphone_users": [
+        "smartphones"
+      ],
+      "streaming_subscribers": [
+        "subs"
+      ]
+    },
+    "geos": {
+      "US": [
+        "america"
+      ],
+      "BR": [
+        "brasil"
+      ],
+      "GB": [
+        "britain",
+        "drunk",
+        "great"
+      ],
+      "DE": [
+        "deutschland"
+      ],
+      "WW": [
+        "globally"
+      ],
+      "NL": [
+        "holland"
+      ]
+    }
+  },
+  "scored": [
+    {
+      "id": "a2a",
+      "title": "Agent-to-agent (A2A) endpoint",
+      "bucket": "discovery",
+      "evidence": "demand_signal",
+      "effort_weeks": 5,
+      "needs": [],
+      "kill": "Do not build unless three paying accounts commit to a pilot.",
+      "problem": "Some enterprise customers build multi-agent systems and ask for A2A alongside MCP.",
+      "hypothesis": "An A2A endpoint over the same grounding service opens accounts that do not use MCP clients.",
+      "value": 200,
+      "unit": "verified answers/week (stated, not measured)",
+      "interval": null,
+      "breaches": [],
+      "confidence": 0.3,
+      "score": 12.0
+    },
+    {
+      "id": "charts",
+      "title": "Charts in AI answers",
+      "bucket": "discovery",
+      "evidence": "demand_signal",
+      "effort_weeks": 4,
+      "needs": [],
+      "kill": "Do not build if a prototype with five customers does not change how often they come back.",
+      "problem": "Users copy numbers into slides; the research assistant cannot return a chart.",
+      "hypothesis": "Returning a chart specification with the citation increases repeat use.",
+      "value": 120,
+      "unit": "verified answers/week (stated, not measured)",
+      "interval": null,
+      "breaches": [],
+      "confidence": 0.3,
+      "score": 9.0
+    },
+    {
+      "id": "cache",
+      "title": "Cache statistics by version",
+      "bucket": "efficiency",
+      "evidence": "measured_offline",
+      "effort_weeks": 2,
+      "needs": [],
+      "kill": "Roll back on any stale answer traced to the cache.",
+      "problem": "Popular statistics are fetched from the warehouse thousands of times a week.",
+      "hypothesis": "A cache keyed by statistic and version (invalidated by the revision stream) cuts warehouse cost and latency with no staleness.",
+      "value": 7.89,
+      "unit": "EUR saved/week",
+      "latency_p95_ms": [
+        99.4,
+        89.8
+      ],
+      "interval": null,
+      "breaches": [],
+      "side_effect_correct_per_week": 0,
+      "confidence": 0.9,
+      "score": 3.6
+    },
+    {
+      "id": "glossary",
+      "title": "Learn the words customers use",
+      "bucket": "north_star",
+      "evidence": "measured_offline",
+      "effort_weeks": 4,
+      "needs": [
+        "facets"
+      ],
+      "kill": "Stop if analysts reject more than half of the proposed synonyms, or verified answers do not rise in the canary.",
+      "problem": "People ask in their own words (\"e-car registrations\", \"Deutschland\"); the catalogue only knows the analysts' words, so the search misses or picks the wrong statistic.",
+      "hypothesis": "Synonyms mined from rephrased questions in the MCP session logs, reviewed by analysts, recover most of those misses.",
+      "value": 14135,
+      "unit": "trust-weighted answers/week",
+      "interval": [
+        12472,
+        16093
+      ],
+      "correct_per_week": 2495,
+      "wrong_numbers_per_week": -3880,
+      "measured_against": "facets",
+      "breaches": [],
+      "confidence": 0.9,
+      "score": 3180.4
+    },
+    {
+      "id": "facets",
+      "title": "Understand where and when a question is about",
+      "bucket": "north_star",
+      "evidence": "measured_offline",
+      "effort_weeks": 3,
+      "needs": [],
+      "kill": "Roll back if, after two weeks on 10% of accounts, wrong-number share has not fallen by a fifth or verified answers fell.",
+      "problem": "Searches ignore the geography and year in the question, so \"EV sales in Germany 2023\" can return France, and a place we do not cover gets a neighbour's number.",
+      "hypothesis": "Parsing geography and year as filters, and answering \"not covered\" for places outside the catalogue, cuts wrong numbers without losing right ones.",
+      "value": 1035,
+      "unit": "trust-weighted answers/week",
+      "interval": [
+        772,
+        1312
+      ],
+      "correct_per_week": 0,
+      "wrong_numbers_per_week": -345,
+      "measured_against": "today",
+      "breaches": [],
+      "confidence": 0.9,
+      "score": 310.5
+    },
+    {
+      "id": "selfserve_contracts",
+      "title": "Contract checks in producers' own CI",
+      "bucket": "north_star",
+      "evidence": "modelled",
+      "effort_weeks": 3,
+      "needs": [],
+      "kill": "Stop if producer teams do not adopt it within a month (fewer than half of deliveries checked in CI).",
+      "problem": "A delivery that breaks its contract is refused at the door and waits days for a platform engineer's review; meanwhile customers get the old number.",
+      "hypothesis": "Running the same contract checks in the producers' pipelines catches most breaks before delivery and gets the fix live the same day.",
+      "value": 30,
+      "unit": "trust-weighted answers/week",
+      "interval": [
+        10,
+        60
+      ],
+      "correct_per_week": 8,
+      "wrong_numbers_per_week": 0,
+      "measured_against": "today",
+      "breaches": [],
+      "confidence": 0.6,
+      "score": 6.0
+    }
+  ],
+  "roadmap": {
+    "now": [
+      {
+        "id": "facets",
+        "title": "Understand where and when a question is about",
+        "bucket": "north_star",
+        "evidence": "measured_offline",
+        "effort_weeks": 3,
+        "needs": [],
+        "kill": "Roll back if, after two weeks on 10% of accounts, wrong-number share has not fallen by a fifth or verified answers fell.",
+        "problem": "Searches ignore the geography and year in the question, so \"EV sales in Germany 2023\" can return France, and a place we do not cover gets a neighbour's number.",
+        "hypothesis": "Parsing geography and year as filters, and answering \"not covered\" for places outside the catalogue, cuts wrong numbers without losing right ones.",
+        "value": 1035,
+        "unit": "trust-weighted answers/week",
+        "interval": [
+          772,
+          1312
+        ],
+        "correct_per_week": 0,
+        "wrong_numbers_per_week": -345,
+        "measured_against": "today",
+        "breaches": [],
+        "confidence": 0.9,
+        "score": 310.5,
+        "why": [
+          "needed by learn the words customers use"
+        ]
+      },
+      {
+        "id": "glossary",
+        "title": "Learn the words customers use",
+        "bucket": "north_star",
+        "evidence": "measured_offline",
+        "effort_weeks": 4,
+        "needs": [
+          "facets"
+        ],
+        "kill": "Stop if analysts reject more than half of the proposed synonyms, or verified answers do not rise in the canary.",
+        "problem": "People ask in their own words (\"e-car registrations\", \"Deutschland\"); the catalogue only knows the analysts' words, so the search misses or picks the wrong statistic.",
+        "hypothesis": "Synonyms mined from rephrased questions in the MCP session logs, reviewed by analysts, recover most of those misses.",
+        "value": 14135,
+        "unit": "trust-weighted answers/week",
+        "interval": [
+          12472,
+          16093
+        ],
+        "correct_per_week": 2495,
+        "wrong_numbers_per_week": -3880,
+        "measured_against": "facets",
+        "breaches": [],
+        "confidence": 0.9,
+        "score": 3180.4,
+        "why": []
+      },
+      {
+        "id": "cache",
+        "title": "Cache statistics by version",
+        "bucket": "efficiency",
+        "evidence": "measured_offline",
+        "effort_weeks": 2,
+        "needs": [],
+        "kill": "Roll back on any stale answer traced to the cache.",
+        "problem": "Popular statistics are fetched from the warehouse thousands of times a week.",
+        "hypothesis": "A cache keyed by statistic and version (invalidated by the revision stream) cuts warehouse cost and latency with no staleness.",
+        "value": 7.89,
+        "unit": "EUR saved/week",
+        "latency_p95_ms": [
+          99.4,
+          89.8
+        ],
+        "interval": null,
+        "breaches": [],
+        "side_effect_correct_per_week": 0,
+        "confidence": 0.9,
+        "score": 3.6,
+        "why": []
+      }
+    ],
+    "next": [
+      {
+        "id": "selfserve_contracts",
+        "title": "Contract checks in producers' own CI",
+        "bucket": "north_star",
+        "evidence": "modelled",
+        "effort_weeks": 3,
+        "needs": [],
+        "kill": "Stop if producer teams do not adopt it within a month (fewer than half of deliveries checked in CI).",
+        "problem": "A delivery that breaks its contract is refused at the door and waits days for a platform engineer's review; meanwhile customers get the old number.",
+        "hypothesis": "Running the same contract checks in the producers' pipelines catches most breaks before delivery and gets the fix live the same day.",
+        "value": 30,
+        "unit": "trust-weighted answers/week",
+        "interval": [
+          10,
+          60
+        ],
+        "correct_per_week": 8,
+        "wrong_numbers_per_week": 0,
+        "measured_against": "today",
+        "breaches": [],
+        "confidence": 0.6,
+        "score": 6.0,
+        "why": [
+          "no capacity left in north star"
+        ]
+      }
+    ],
+    "discovery": [
+      {
+        "id": "a2a",
+        "title": "Agent-to-agent (A2A) endpoint",
+        "bucket": "discovery",
+        "evidence": "demand_signal",
+        "effort_weeks": 5,
+        "needs": [],
+        "kill": "Do not build unless three paying accounts commit to a pilot.",
+        "problem": "Some enterprise customers build multi-agent systems and ask for A2A alongside MCP.",
+        "hypothesis": "An A2A endpoint over the same grounding service opens accounts that do not use MCP clients.",
+        "value": 200,
+        "unit": "verified answers/week (stated, not measured)",
+        "interval": null,
+        "breaches": [],
+        "confidence": 0.3,
+        "score": 12.0,
+        "why": [
+          "one week of discovery this quarter: Do not build unless three paying accounts commit to a pilot."
+        ]
+      },
+      {
+        "id": "charts",
+        "title": "Charts in AI answers",
+        "bucket": "discovery",
+        "evidence": "demand_signal",
+        "effort_weeks": 4,
+        "needs": [],
+        "kill": "Do not build if a prototype with five customers does not change how often they come back.",
+        "problem": "Users copy numbers into slides; the research assistant cannot return a chart.",
+        "hypothesis": "Returning a chart specification with the citation increases repeat use.",
+        "value": 120,
+        "unit": "verified answers/week (stated, not measured)",
+        "interval": null,
+        "breaches": [],
+        "confidence": 0.3,
+        "score": 9.0,
+        "why": [
+          "one week of discovery this quarter: Do not build if a prototype with five customers does not change how often they come back."
+        ]
+      }
+    ],
+    "not_now": [],
+    "capacity_left": {
+      "north_star": 1,
+      "efficiency": 2,
+      "discovery": 0
+    }
+  },
+  "plan": {
+    "flags": {
+      "facets": true,
+      "glossary": true,
+      "cache": true
+    },
+    "selfserve": false,
+    "summary": {
+      "questions": 97100,
+      "answers": 97810,
+      "correct_per_week": 20925,
+      "correct_share": 0.862,
+      "wrong_number_share": 0.0354,
+      "stale_share": 0.0003,
+      "missed_share": 0.0019,
+      "declined_right": 10430,
+      "rephrased": 710,
+      "cited_wrong_numbers": 1310,
+      "latency_p95_ms": 89.0,
+      "cost_eur": 95.57,
+      "cost_per_correct_eur": 0.00114,
+      "tickets": 80,
+      "by_kind": {
+        "plain": {
+          "correct": 3958,
+          "wrong_number": 28,
+          "missed": 6,
+          "stale": 3
+        },
+        "paraphrase": {
+          "correct": 2393,
+          "missed": 11,
+          "wrong_number": 70
+        },
+        "uncovered": {
+          "declined_right": 573,
+          "wrong_number": 193
+        },
+        "forecast": {
+          "correct": 604,
+          "wrong_number": 4,
+          "missed": 1
+        },
+        "as_of": {
+          "correct": 791,
+          "wrong_number": 10,
+          "missed": 1
+        },
+        "premium": {
+          "correct": 624,
+          "declined_right": 470,
+          "wrong_number": 41
+        }
+      },
+      "weeks": 4,
+      "premium_leaks": 0
+    },
+    "delta": {
+      "correct": {
+        "per_week": 2495,
+        "low": 2197,
+        "high": 2830
+      },
+      "wrong_number": {
+        "per_week": -4225,
+        "low": -4812,
+        "high": -3735
+      },
+      "value": {
+        "per_week": 15170,
+        "low": 13425,
+        "high": 17246
+      }
+    },
+    "parts_sum": 15170,
+    "parts": {
+      "facets": 1035,
+      "glossary": 14135,
+      "cache": 7.89
+    },
+    "breaches": []
+  },
+  "represents": 10,
+  "accounts": 700,
+  "seconds": 56.1,
+  "gate": [
+    {
+      "name": "refused exactly the deliveries that would break consumers",
+      "passed": true,
+      "value": true,
+      "op": "==",
+      "bound": 1
+    },
+    {
+      "name": "dbt models and tests pass",
+      "passed": true,
+      "value": true,
+      "op": "==",
+      "bound": 1
+    },
+    {
+      "name": "no premium value reaches a plan without premium",
+      "passed": true,
+      "value": 0,
+      "op": "<=",
+      "bound": 0
+    },
+    {
+      "name": "the platform gives at most a third of the wrong numbers an assistant gives alone",
+      "passed": true,
+      "value": 0.1942,
+      "op": "<=",
+      "bound": 0.310284
+    },
+    {
+      "name": "the audit estimate of the North Star covers the truth",
+      "passed": true,
+      "value": true,
+      "op": "==",
+      "bound": 1
+    },
+    {
+      "name": "answers as of a date earn their keep",
+      "passed": true,
+      "value": 710,
+      "op": ">",
+      "bound": 0
+    },
+    {
+      "name": "'not in your plan' earns its keep",
+      "passed": true,
+      "value": 842,
+      "op": ">",
+      "bound": 0
+    },
+    {
+      "name": "the planned bets together keep the guardrails",
+      "passed": true,
+      "value": 0.0354,
+      "op": "<=",
+      "bound": 0.2
+    },
+    {
+      "name": "the planned bets together add trust-weighted answers",
+      "passed": true,
+      "value": 13425,
+      "op": ">",
+      "bound": 0
+    },
+    {
+      "name": "p95 latency within the SLO",
+      "passed": true,
+      "value": 80.1,
+      "op": "<=",
+      "bound": 250
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+# THE SIMULATED WORLD (truth). Only dgp.sim and dgp.evals may read this file.
+# A business-statistics publisher: analyst teams publish verified statistics; customers ask about
+# them through AI clients (MCP), the API and the publisher's own research assistant.
+seed: 2026
+start: 2026-01-05            # a Monday
+weeks: 12
+
+catalogue:
+  years: [2016, 2025]        # actuals
+  forecast_years: [2026, 2029]
+  geographies:               # code: [name, how people write it]
+    DE: [Germany, [Germany, German, Deutschland, DE]]
+    US: [United States, [United States, US, USA, America, the U.S.]]
+    GB: [United Kingdom, [United Kingdom, UK, Britain, Great Britain]]
+    FR: [France, [France, French]]
+    JP: [Japan, [Japan, Japanese]]
+    CN: [China, [China, Chinese]]
+    IN: [India, [India, Indian]]
+    BR: [Brazil, [Brazil, Brasil]]
+    IT: [Italy, [Italy, Italian]]
+    ES: [Spain, [Spain, Spanish]]
+    NL: [Netherlands, [Netherlands, the Netherlands, Holland, Dutch]]
+    SE: [Sweden, [Sweden, Swedish]]
+    PL: [Poland, [Poland, Polish]]
+    CA: [Canada, [Canada, Canadian]]
+    AU: [Australia, [Australia, Australian]]
+    WW: [Worldwide, [worldwide, global, globally, the world]]
+  uncovered_geographies: [Liechtenstein, Andorra, Tuvalu, Bhutan]
+  # metric: [topic, unit, title, analyst keywords (published), how users ask (truth: the vocabulary), base, growth]
+  metrics:
+    ev_sales: [mobility, thousand units, Electric car sales, [electric vehicle sales, EV sales], [electric car sales, EV sales, battery electric cars sold, e-car registrations, plug-in car sales], 120, 0.25]
+    ecommerce_revenue: [retail, billion USD, E-commerce revenue, [online retail revenue, e-commerce sales], [e-commerce revenue, online shopping revenue, online retail sales, internet sales, webshop turnover], 60, 0.09]
+    smartphone_users: [technology, million, Smartphone users, [smartphone users, mobile phone users], [smartphone users, people with smartphones, smartphone penetration count, mobile users, phone owners], 40, 0.04]
+    streaming_subscribers: [media, million, Video streaming subscribers, [SVoD subscribers, streaming subscriptions], [video streaming subscribers, streaming subscriptions, SVoD subs, Netflix-style subscribers, paid streaming users], 15, 0.08]
+    inflation_rate: [economy, percent, Inflation rate, [inflation rate, consumer price inflation], [inflation rate, CPI inflation, price inflation, consumer prices growth, cost of living increase], 2.5, 0.0]
+    gdp: [economy, billion USD, Gross domestic product, [GDP, gross domestic product], [GDP, gross domestic product, economic output, size of the economy, national output], 2000, 0.03]
+    unemployment_rate: [economy, percent, Unemployment rate, [unemployment rate, jobless rate], [unemployment rate, jobless rate, share unemployed, joblessness, labour market slack], 6, 0.0]
+    coffee_consumption: [food, thousand tonnes, Coffee consumption, [coffee consumption, coffee volume], [coffee consumption, coffee drunk, coffee demand, coffee intake, coffee volume consumed], 300, 0.015]
+    beer_sales: [food, million hectoliters, Beer sales volume, [beer sales, beer volume], [beer sales, beer consumed, beer market volume, beer drunk, lager sales], 50, -0.01]
+    air_passengers: [travel, million, Air passengers, [air passengers, airline passengers], [air passengers, people flying, airline traffic, flight passengers, air travellers], 120, 0.05]
+    hotel_nights: [travel, million, Hotel overnight stays, [overnight stays, hotel nights], [hotel overnight stays, hotel nights, nights in hotels, accommodation nights, tourist nights], 300, 0.03]
+    renewable_share: [energy, percent, Share of renewables in electricity, [renewable share, renewable electricity], [renewable share of electricity, green power share, renewables percentage, clean electricity share, share of wind and solar], 30, 0.06]
+    electricity_price: [energy, euro cents per kWh, Household electricity price, [household electricity price, power price], [household electricity price, power price for homes, residential electricity cost, energy bill per kWh, price of electricity], 25, 0.04]
+    online_ad_spend: [advertising, billion USD, Digital advertising spending, [digital ad spend, online advertising spending], [digital ad spend, online advertising spending, internet ad market, digital marketing spend, online ad budget], 20, 0.11]
+    cloud_spend: [technology, billion USD, Public cloud spending, [public cloud spending, cloud services market], [public cloud spending, cloud market size, cloud services revenue, spending on the cloud, IaaS and SaaS spend], 15, 0.18]
+    gaming_revenue: [media, billion USD, Video game revenue, [video game revenue, gaming market], [video game revenue, gaming market size, games industry revenue, gaming sales, video gaming spend], 8, 0.07]
+    fintech_users: [finance, million, Digital payment users, [digital payment users, mobile payment users], [digital payment users, mobile payment users, people paying by phone, e-wallet users, cashless payment users], 25, 0.09]
+    bike_sales: [mobility, thousand units, Bicycle sales, [bicycle sales, bike sales], [bicycle sales, bike sales, bikes sold, cycle sales, e-bike and bike sales], 3000, 0.01]
+    wine_consumption: [food, million liters, Wine consumption, [wine consumption, wine volume], [wine consumption, wine drunk, wine demand, wine market volume, wine intake], 900, -0.005]
+    cinema_admissions: [media, million, Cinema admissions, [cinema admissions, box office admissions], [cinema admissions, movie tickets sold, cinema visits, box office attendance, people going to the movies], 80, 0.01]
+  premium_share: 0.3         # of statistics, available to enterprise plans only
+  noise: 0.06                # year-to-year variation around the growth path
+
+revisions:
+  share_revised: 0.18        # statistics with a revision published during the twelve weeks
+  relative_change: [0.02, 0.12]
+  forecast_share_revised: 0.45
+
+consumers:
+  represents: 10             # each simulated question stands for this many real ones
+  plans:                     # accounts: count, simulated weekly questions per account (mean)
+    enterprise: [60, 22]
+    team: [240, 3.5]
+    api_starter: [400, 0.6]
+  clients: {claude: 0.34, copilot: 0.22, research_assistant: 0.24, n8n: 0.08, api_direct: 0.12}
+  question_mix:              # what people ask
+    plain: 0.40
+    paraphrase: 0.25         # the metric in the user's words, not the analysts'
+    as_of: 0.08              # "as published on <date>": needs the revision that was live then
+    forecast: 0.07
+    uncovered: 0.08          # a geography or year the catalogue does not have: the right answer is "no data"
+    premium: 0.12            # a premium statistic; for non-enterprise plans the right answer is "not in your plan"
+  reformulate_after_miss: 0.6  # a user who got no useful answer rephrases once, in analyst words half the time
+  report_wrong_number: 0.04    # a wrong cited number is reported to support with this probability
+
+grounded_client:             # what an AI client does with the platform's answers
+  no_match_answers_from_memory: 0.25       # the search found nothing: it still answers from memory this often
+  generic_error_answers_from_memory: 0.6   # a bare error code: it guesses what it means and answers anyway
+  not_entitled_answers_from_memory: 0.05   # "not in your plan": it says so
+  notices_wrong_statistic: 0.7             # the top result is about something else: the user notices and rephrases
+
+ungrounded_model:            # what an assistant says without the platform (no tools)
+  knowledge_cutoff: 2024-06-30
+  answers_anyway: 0.92       # instead of saying it does not know
+  relative_error_sd: 0.12    # numbers from memory are approximate
+  uses_older_revision: 0.5
+
+producers:
+  teams: 12
+  new_datasets_per_week: [3, 9]
+  breaking_change_share: 0.12        # of dataset updates, would break a consumer if published
+  review_days_manual: [2, 9]         # days a contract waits for a platform engineer's review
+  review_days_selfserve: [0, 1]      # with self-serve contract checks in CI
+  selfserve_still_needs_review: 0.2

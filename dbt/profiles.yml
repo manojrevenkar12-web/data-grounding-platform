@@ -1,0 +1,8 @@
+# DuckDB here; the same models run on Snowflake with a snowflake target (see docs/adr/0002).
+grounding:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DGP_WAREHOUSE') }}"
+      threads: 4

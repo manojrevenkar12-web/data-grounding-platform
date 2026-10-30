@@ -1,0 +1,29 @@
+version: 2
+models:
+  - name: dim_statistic
+    description: One row per statistic, described by its latest version.
+    columns:
+      - name: stat_id
+        data_tests: [unique, not_null]
+      - name: unit
+        data_tests: [not_null]
+      - name: geo
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [DE, US, GB, FR, JP, CN, IN, BR, IT, ES, NL, SE, PL, CA, AU, WW]
+  - name: fct_statistic_versions
+    description: Every published version and its live window.
+    columns:
+      - name: stat_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_statistic')
+                field: stat_id
+  - name: fct_values
+    columns:
+      - name: value
+        data_tests: [not_null]

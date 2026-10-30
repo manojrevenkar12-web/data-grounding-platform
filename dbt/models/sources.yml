@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: raw
+    schema: main
+    tables:
+      - name: raw_statistic_values
+        description: Accepted deliveries, one row per statistic, year and version (written by dgp.platform.ingest).
+      - name: deliveries
+        description: Every delivery and whether its contract accepted it.

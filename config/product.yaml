@@ -1,0 +1,88 @@
+# The product layer: what success means, what we could build next, and how we choose.
+north_star:
+  name: Verified answers delivered
+  definition: >
+    Questions from AI clients answered with the right number, from the version that was live,
+    with a citation; counted per week. Estimated in production from analysts' audit of a random
+    sample of answers; measured exactly in the simulation.
+  audit_share: 0.03            # of cited answers, reviewed by an analyst who knows the right number
+value:                         # how a bet's effect on answers is valued, in verified answers per week
+  wrong_number_weight: 3       # a wrong number given with a citation costs as much trust as three right ones earn
+guardrails:                    # a bet that breaks one of these does not ship, whatever it adds
+  wrong_number_share_max: 0.20 # of answers given
+  latency_p95_ms_max: 250
+  cost_per_correct_eur_max: 0.004
+  premium_leaks_max: 0         # premium values returned to plans without premium
+
+evidence_confidence:           # how much a bet's impact estimate is trusted, by how it was obtained
+  measured_offline: 0.9        # the bet was run on real questions (here: the simulated stream) against the truth
+  modelled: 0.6                # the impact follows from a model of a process (producer review times)
+  demand_signal: 0.3           # customers asked for it; impact not measured
+
+capacity_engineer_weeks:       # next quarter, by investment bucket
+  north_star: 8
+  efficiency: 4
+  discovery: 2
+
+bets:
+  facets:
+    title: Understand where and when a question is about
+    bucket: north_star
+    problem: Searches ignore the geography and year in the question, so "EV sales in Germany 2023" can return France, and a place we do not cover gets a neighbour's number.
+    hypothesis: Parsing geography and year as filters, and answering "not covered" for places outside the catalogue, cuts wrong numbers without losing right ones.
+    evidence: measured_offline
+    variant: {facets: true}
+    effort_weeks: 3
+    kill: Roll back if, after two weeks on 10% of accounts, wrong-number share has not fallen by a fifth or verified answers fell.
+  glossary:
+    title: Learn the words customers use
+    bucket: north_star
+    problem: People ask in their own words ("e-car registrations", "Deutschland"); the catalogue only knows the analysts' words, so the search misses or picks the wrong statistic.
+    hypothesis: Synonyms mined from rephrased questions in the MCP session logs, reviewed by analysts, recover most of those misses.
+    evidence: measured_offline
+    variant: {glossary: true}
+    needs: [facets]              # measured on top of facets: the mined geography names are facets' vocabulary
+    effort_weeks: 4
+    kill: Stop if analysts reject more than half of the proposed synonyms, or verified answers do not rise in the canary.
+  selfserve_contracts:
+    title: Contract checks in producers' own CI
+    bucket: north_star
+    problem: A delivery that breaks its contract is refused at the door and waits days for a platform engineer's review; meanwhile customers get the old number.
+    hypothesis: Running the same contract checks in the producers' pipelines catches most breaks before delivery and gets the fix live the same day.
+    evidence: modelled
+    variant: {producers: selfserve}
+    effort_weeks: 3
+    kill: Stop if producer teams do not adopt it within a month (fewer than half of deliveries checked in CI).
+  cache:
+    title: Cache statistics by version
+    bucket: efficiency
+    problem: Popular statistics are fetched from the warehouse thousands of times a week.
+    hypothesis: A cache keyed by statistic and version (invalidated by the revision stream) cuts warehouse cost and latency with no staleness.
+    evidence: measured_offline
+    variant: {cache: true}
+    effort_weeks: 2
+    kill: Roll back on any stale answer traced to the cache.
+  a2a:
+    title: Agent-to-agent (A2A) endpoint
+    bucket: discovery
+    problem: Some enterprise customers build multi-agent systems and ask for A2A alongside MCP.
+    hypothesis: An A2A endpoint over the same grounding service opens accounts that do not use MCP clients.
+    evidence: demand_signal
+    reach_questions_per_week: 2000   # what the requesting accounts ask today, per their own estimate
+    impact_per_question: 0.1
+    effort_weeks: 5
+    kill: Do not build unless three paying accounts commit to a pilot.
+  charts:
+    title: Charts in AI answers
+    bucket: discovery
+    problem: Users copy numbers into slides; the research assistant cannot return a chart.
+    hypothesis: Returning a chart specification with the citation increases repeat use.
+    evidence: demand_signal
+    reach_questions_per_week: 6000
+    impact_per_question: 0.02
+    effort_weeks: 4
+    kill: Do not build if a prototype with five customers does not change how often they come back.
+
+shipped:                         # features already live: are they still earning their keep?
+  as_of: {title: Answers as of a date, with revision notices, variant: {as_of: false}}
+  entitlement_answers: {title: Say "not in your plan" instead of a bare error, variant: {entitlement_answers: false}}

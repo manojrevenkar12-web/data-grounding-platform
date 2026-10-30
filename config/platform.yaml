@@ -1,0 +1,40 @@
+# The grounding platform: plans, entitlements, metering, budgets and retrieval. Business settings.
+plans:
+  enterprise: {topics: all, premium: true, monthly_budget_eur: 2000, rate_per_minute: 600}
+  team: {topics: standard, premium: false, monthly_budget_eur: 150, rate_per_minute: 120}
+  api_starter: {topics: standard, premium: false, monthly_budget_eur: 25, rate_per_minute: 30}
+
+metering:                      # what one call costs us (warehouse compute, egress), in euro
+  search_eur: 0.0009
+  get_statistic_eur: 0.0004
+  cached_eur: 0.00005
+  price_per_answer_eur:        # what we charge per grounded answer above the plan's included volume
+    enterprise: 0.010
+    team: 0.015
+    api_starter: 0.020
+
+citation:
+  publisher: Business Statistics Publisher
+  url: https://data.example/statistics/{stat_id}?version={version}
+  licence: "Licensed to {account}; cite as shown; redistribution of the dataset not permitted"
+
+retrieval:
+  top_k: 5
+  min_score: 0.12              # below this a search returns nothing rather than a guess
+  bm25: {k1: 1.2, b: 0.6}
+
+latency_ms:                    # modelled service times, for the SLO
+  search: [35, 90]
+  get_statistic: [8, 25]
+  cached: [2, 5]
+
+slo:
+  p95_latency_ms: 250
+  availability: 0.999
+
+features:                      # what the production platform runs today (the product layer evaluates the rest)
+  facets: false                # parse geography and year from the query and filter on them
+  as_of: true                  # answers carry the revision that was live at a given date
+  entitlement_answers: true    # a statistic outside the plan is answered with "not in your plan", never a number
+  glossary: false              # synonyms mined from reformulated queries in the logs
+  cache: false                 # cache statistics by id and version
