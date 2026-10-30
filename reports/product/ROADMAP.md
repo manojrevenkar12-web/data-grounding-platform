@@ -11,7 +11,7 @@
 - **Evidence**: measured offline: 1,035 trust-weighted answers/week (772 to 1,312); confidence 0.9
 - **Effort**: 3 engineer-weeks (north star)
 - **Kill criterion**: Roll back if, after two weeks on 10% of accounts, wrong-number share has not fallen by a fifth or verified answers fell.
-- **Why here**: needed by learn the words customers use
+- **Why here**: needed by: Learn the words customers use
 
 ### Learn the words customers use
 

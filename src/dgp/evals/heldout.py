@@ -42,8 +42,9 @@ def to_question(k: int, c: dict[str, Any], stats: dict[str, catalogue.Statistic]
     else:
         gold = {"answer": c["expect"]}
     acc = Account(f"heldout-{c['plan']}", c["plan"])
-    return world.Question(100_000 + k, ts, acc, "heldout", KIND[c["expect"]], sid, year, c["question"], as_of, gold,
-                          f"h{k}", attempt=2)  # attempt 2: the stand-in client does not rephrase
+    return world.Question(
+        100_000 + k, ts, acc, "heldout", KIND[c["expect"]], sid, year, c["question"], as_of, gold, f"h{k}", attempt=2
+    )  # attempt 2: the stand-in client does not rephrase
 
 
 def run(name: str, flags_by_config: dict[str, dict[str, Any]], glossary: dict[str, Any] | None) -> dict[str, Any]:
@@ -59,13 +60,30 @@ def run(name: str, flags_by_config: dict[str, dict[str, Any]], glossary: dict[st
             q = to_question(k, c, stats, ts)
             o = world.ask(q, g, stats, r)
             right = o.result in ("correct", "declined_right")
-            rows.append({"id": c["id"], "expect": c["expect"], "result": o.result, "right": right,
-                         "answered": o.answered_stat, "why": c.get("why", "")})
-        by = {e: {"cases": sum(1 for x in rows if x["expect"] == e),
-                  "right": sum(1 for x in rows if x["expect"] == e and x["right"])} for e in KIND}
-        out["configs"][config] = {"right": sum(x["right"] for x in rows), "share": round(
-            sum(x["right"] for x in rows) / len(rows), 3), "by_expect": by,
-            "results": dict(Counter(x["result"] for x in rows)), "rows": rows}
+            rows.append(
+                {
+                    "id": c["id"],
+                    "expect": c["expect"],
+                    "result": o.result,
+                    "right": right,
+                    "answered": o.answered_stat,
+                    "why": c.get("why", ""),
+                }
+            )
+        by = {
+            e: {
+                "cases": sum(1 for x in rows if x["expect"] == e),
+                "right": sum(1 for x in rows if x["expect"] == e and x["right"]),
+            }
+            for e in KIND
+        }
+        out["configs"][config] = {
+            "right": sum(x["right"] for x in rows),
+            "share": round(sum(x["right"] for x in rows) / len(rows), 3),
+            "by_expect": by,
+            "results": dict(Counter(x["result"] for x in rows)),
+            "rows": rows,
+        }
     folder = settings.REPORTS / "heldout" / name
     folder.mkdir(parents=True, exist_ok=True)
     first = folder / "first_run.json"

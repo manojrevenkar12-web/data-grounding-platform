@@ -4,7 +4,7 @@
 
 | Decision | Column | Evidence | Reason | Revisit / kill when |
 |---|---|---|---|---|
-| Understand where and when a question is about | now | measured offline, 1,035/week, confidence 0.9 | needed by learn the words customers use | Roll back if, after two weeks on 10% of accounts, wrong-number share has not fallen by a fifth or verified answers fell. |
+| Understand where and when a question is about | now | measured offline, 1,035/week, confidence 0.9 | needed by: Learn the words customers use | Roll back if, after two weeks on 10% of accounts, wrong-number share has not fallen by a fifth or verified answers fell. |
 | Learn the words customers use | now | measured offline, 14,135/week, confidence 0.9 | highest score that fits | Stop if analysts reject more than half of the proposed synonyms, or verified answers do not rise in the canary. |
 | Cache statistics by version | now | measured offline, EUR 7.89/week, confidence 0.9 | highest score that fits | Roll back on any stale answer traced to the cache. |
 | Contract checks in producers' own CI | next | modelled, 30/week, confidence 0.6 | no capacity left in north star | Stop if producer teams do not adopt it within a month (fewer than half of deliveries checked in CI). |

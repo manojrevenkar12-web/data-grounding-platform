@@ -1006,7 +1006,7 @@
         "confidence": 0.9,
         "score": 310.5,
         "why": [
-          "needed by learn the words customers use"
+          "needed by: Learn the words customers use"
         ]
       },
       {
@@ -1220,7 +1220,7 @@
   },
   "represents": 10,
   "accounts": 700,
-  "seconds": 56.1,
+  "seconds": 52.4,
   "gate": [
     {
       "name": "refused exactly the deliveries that would break consumers",

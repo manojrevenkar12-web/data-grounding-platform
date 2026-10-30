@@ -1,0 +1,54 @@
+name: ci
+on:
+  push: {branches: [main]}
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: lint, contracts and fast tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with: {enable-cache: true}
+      - run: scripts/ci-run.sh "uv sync" uv sync --frozen
+      - run: scripts/ci-run.sh "ruff" uv run ruff check src tests
+      - run: scripts/ci-run.sh "ruff format" uv run ruff format --check src tests
+      - run: scripts/ci-run.sh "contracts" uv run dgp contract lint
+      - run: scripts/ci-run.sh "pytest" uv run pytest -q -m "not slow" --cov=dgp --cov-report=term
+
+  pipeline:
+    name: warehouse, production, bets, roadmap and the gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with: {enable-cache: true}
+      - run: scripts/ci-run.sh "uv sync" uv sync --frozen
+      - run: scripts/ci-run.sh "slow tests" uv run pytest -q -m slow
+      - run: scripts/ci-run.sh "dgp run" uv run dgp run
+      - run: scripts/ci-run.sh "reports are generated" git diff --stat --exit-code -- reports/results.json reports/RESULTS.md reports/product
+      - run: scripts/ci-run.sh "held-out first runs unchanged" git diff --exit-code -- 'reports/heldout/*/first_run.json'
+
+  web:
+    name: dashboard (unit and end-to-end)
+    runs-on: ubuntu-latest
+    defaults: {run: {working-directory: web}}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: {node-version: 22, cache: npm, cache-dependency-path: web/package-lock.json}
+      - run: ../scripts/ci-run.sh "npm ci" npm ci
+      - run: ../scripts/ci-run.sh "tsc" npx tsc --noEmit -p .
+      - run: ../scripts/ci-run.sh "vitest" npm test
+      - run: ../scripts/ci-run.sh "build" npm run build
+      - run: ../scripts/ci-run.sh "playwright install" npx playwright install --with-deps chromium
+      - run: ../scripts/ci-run.sh "playwright" npx playwright test

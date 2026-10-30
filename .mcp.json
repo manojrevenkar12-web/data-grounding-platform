@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "data-grounding": {
+      "command": "uv",
+      "args": ["run", "dgp", "serve-mcp"],
+      "env": {"DGP_API_KEY": "${DGP_API_KEY}"}
+    }
+  }
+}

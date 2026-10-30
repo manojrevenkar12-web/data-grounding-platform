@@ -116,6 +116,21 @@ def ask(question: str, plan: str = typer.Option("enterprise"), as_of: str | None
     typer.echo(json.dumps(out, indent=2, default=str))
 
 
+@app.command()
+def heldout(name: str) -> None:
+    """Score a blind question set through today's platform and the planned one (first run recorded once)."""
+    from . import settings
+    from .evals import heldout as h
+
+    results = json.loads((settings.REPORTS / "results.json").read_text())
+    out = h.run(name, {"today": {}, "plan": results["plan"]["flags"]}, results["glossary"])
+    for config, c in out["configs"].items():
+        typer.echo(
+            f"{name} ({out['status']}) {config}: {c['right']}/{out['cases']} right"
+            + (" — first run recorded" if out.get("first_run") else "")
+        )
+
+
 @app.command("serve")
 def serve(host: str = "127.0.0.1", port: int = 8780) -> None:
     """The grounding API."""

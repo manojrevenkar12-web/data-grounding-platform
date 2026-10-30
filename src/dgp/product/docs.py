@@ -37,6 +37,44 @@ def _ci(iv: list[int] | None) -> str:
     return "" if not iv else f" ({n(iv[0])} to {n(iv[1])})"
 
 
+def heldout(r: dict[str, Any]) -> list[dict[str, Any]]:
+    """First runs of blind question sets, with the trust-weighted value of each configuration."""
+    import json
+
+    w = settings.load("product")["value"]["wrong_number_weight"]
+    out = []
+    for f in sorted((settings.REPORTS / "heldout").glob("*/first_run.json")):
+        h = json.loads(f.read_text())
+        cfgs = {}
+        for name, c in h["configs"].items():
+            res = c["results"]
+            cfgs[name] = {
+                "right": c["right"],
+                "correct": res.get("correct", 0),
+                "wrong": res.get("wrong_number", 0),
+                "value": res.get("correct", 0) - w * (res.get("wrong_number", 0) + res.get("stale", 0)),
+            }
+        out.append({"set": h["set"], "status": h["status"], "cases": h["cases"], "configs": cfgs})
+    return out
+
+
+def heldout_md(r: dict[str, Any]) -> list[str]:
+    sets = heldout(r)
+    if not sets:
+        return ["No held-out set has been run yet."]
+    lines = [
+        "| Set | Configuration | Right | Right numbers | Wrong numbers | Trust-weighted |",
+        "|---|---|---|---|---|---|",
+    ]
+    for h in sets:
+        for name, c in h["configs"].items():
+            lines.append(
+                f"| {h['set']} ({h['status']}) | {name} | {c['right']} of {h['cases']} | {c['correct']} | "
+                f"{c['wrong']} | {c['value']} |"
+            )
+    return lines
+
+
 def results_md(r: dict[str, Any]) -> str:
     o, t, ev = r["observed"], r["truth"], r["evaluation"]["variants"]
     today, none = ev["today"]["summary"], ev["no_platform"]["summary"]
@@ -123,6 +161,15 @@ def results_md(r: dict[str, Any]) -> str:
         f"{n(plan['parts_sum'])} from the parts measured one by one; wrong numbers fall from "
         f"{pct(today['wrong_number_share'])} to {pct(plan['summary']['wrong_number_share'])} of answers.",
         "",
+        "## Held-out questions (written blind, first run)",
+        "",
+        "Questions written by someone who had not seen the platform, from the public catalogue listing only, "
+        "asked once through today's platform and through the planned one.",
+        "",
+        *heldout_md(r),
+        "",
+        _heldout_risk(r),
+        "",
         "## Producers",
         "",
     ]
@@ -175,6 +222,10 @@ questions, not estimated.
 
 {chr(10).join(f"- **{b['title']}**: {'; '.join(b.get('why', []))}" for b in rm["next"] + rm["discovery"] + rm["not_now"]) or "- nothing deferred"}
 
+## The risk we are watching
+
+{_heldout_risk(r)}
+
 ## How we decide
 
 A bet is scored as value × confidence ÷ effort within its investment bucket
@@ -183,6 +234,28 @@ the kind of evidence: {", ".join(f"{k.replace('_', ' ')} {v}" for k, v in p["evi
 Every bet has a kill criterion before it starts, and the Now column is run together before we commit,
 in case the parts do not add up.
 """
+
+
+def _heldout_risk(r: dict[str, Any]) -> str:
+    sets = heldout(r)
+    if not sets:
+        return "No blind question set has been run yet; the simulated vocabulary may flatter the glossary."
+    h = sets[0]
+    t, p = h["configs"].get("today"), h["configs"].get("plan")
+    if not t or not p:
+        return ""
+    verdict = (
+        "holds up"
+        if p["value"] > t["value"]
+        else "does not hold up yet: it answers more questions but also gives more wrong numbers"
+    )
+    return (
+        f"On {h['cases']} questions written blind ({h['set']}), the plan gave {p['correct'] - t['correct']} more right "
+        f"answers and {p['wrong'] - t['wrong']} more wrong numbers than today: by our own trust weighting it "
+        f"{verdict}. The simulated customers' vocabulary flatters the glossary. So the glossary ships only "
+        "behind analyst review and a two-week canary with its kill criterion, and the blind set is not studied: "
+        "if its failures are, it becomes a regression set and a new one is written."
+    )
 
 
 def roadmap_md(r: dict[str, Any]) -> str:
@@ -325,6 +398,7 @@ def brief_md(r: dict[str, Any]) -> str:
   {n(plan["delta"]["correct"]["per_week"])} a week.
 - **Not yet**: {", ".join(lc(b["title"]) for b in r["roadmap"]["next"] + r["roadmap"]["discovery"]) or "nothing"}.
   Each has a kill criterion and a cheap test first.
+- **Caution**: {_heldout_risk(r)}
 - **Safety held**: no premium value reached a plan without it. The contract gate refused all
   {p["refused"]} deliveries that would have broken consumers.
 """

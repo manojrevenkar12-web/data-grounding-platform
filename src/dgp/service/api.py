@@ -8,11 +8,21 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated, Any
 
-from fastapi import Depends, FastAPI, Header, HTTPException, Query
+from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
 
 from ..platform.catalog import Catalog
 from ..platform.grounding import Account, Grounding
 from .keys import Keys
+
+
+def caller(request: Request, x_api_key: Annotated[str | None, Header()] = None) -> Account:
+    acc = request.app.state.keys.account(x_api_key)
+    if acc is None:
+        raise HTTPException(401, "a valid X-API-Key is required")
+    return acc
+
+
+Who = Annotated[Account, Depends(caller)]
 
 
 def create_app(warehouse: Path | None = None, keys: Path | None = None, catalog: Catalog | None = None) -> FastAPI:
@@ -22,14 +32,6 @@ def create_app(warehouse: Path | None = None, keys: Path | None = None, catalog:
     k = Keys(keys or settings.BUILD / "keys.json")
     app = FastAPI(title="Data grounding API", version="1.0.0")
     app.state.grounding, app.state.keys = g, k
-
-    def caller(x_api_key: Annotated[str | None, Header()] = None) -> Account:
-        acc = k.account(x_api_key)
-        if acc is None:
-            raise HTTPException(401, "a valid X-API-Key is required")
-        return acc
-
-    Who = Annotated[Account, Depends(caller)]
 
     def now() -> datetime:
         return datetime.now(UTC).replace(tzinfo=None)

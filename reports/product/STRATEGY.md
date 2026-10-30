@@ -32,6 +32,10 @@ questions, not estimated.
 - **Agent-to-agent (A2A) endpoint**: one week of discovery this quarter: Do not build unless three paying accounts commit to a pilot.
 - **Charts in AI answers**: one week of discovery this quarter: Do not build if a prototype with five customers does not change how often they come back.
 
+## The risk we are watching
+
+On 53 questions written blind (questions-1), the plan gave 4 more right answers and 2 more wrong numbers than today: by our own trust weighting it does not hold up yet: it answers more questions but also gives more wrong numbers. The simulated customers' vocabulary flatters the glossary. So the glossary ships only behind analyst review and a two-week canary with its kill criterion, and the blind set is not studied: if its failures are, it becomes a regression set and a new one is written.
+
 ## How we decide
 
 A bet is scored as value × confidence ÷ effort within its investment bucket

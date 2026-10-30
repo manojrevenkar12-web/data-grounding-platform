@@ -13,5 +13,6 @@
   2,495 a week.
 - **Not yet**: contract checks in producers' own CI, agent-to-agent (A2A) endpoint, charts in AI answers.
   Each has a kill criterion and a cheap test first.
+- **Caution**: On 53 questions written blind (questions-1), the plan gave 4 more right answers and 2 more wrong numbers than today: by our own trust weighting it does not hold up yet: it answers more questions but also gives more wrong numbers. The simulated customers' vocabulary flatters the glossary. So the glossary ships only behind analyst review and a two-week canary with its kill criterion, and the blind set is not studied: if its failures are, it becomes a regression set and a new one is written.
 - **Safety held**: no premium value reached a plan without it. The contract gate refused all
   8 deliveries that would have broken consumers.
