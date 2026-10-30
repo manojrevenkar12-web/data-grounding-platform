@@ -1,0 +1,485 @@
+# Held-out set questions-1. Written from heldout/WRITING_QUESTIONS.md and heldout/CATALOGUE.md only.
+# Cases whose "why" starts with "hard:" are the ones the writer considers hard.
+
+# ---------------------------------------------------------------- value
+- id: flights-au-2019-colloquial
+  question: how many people flew in australia in 2019
+  plan: team
+  expect: value
+  stat_id: air_passengers-AU
+  year: 2019
+  as_of: null
+  why: colloquial wording for air passengers, covered place and year
+
+- id: beer-br-2021-portuguese
+  question: vendas de cerveja Brasil 2021 - beer volume please
+  plan: api_starter
+  expect: value
+  stat_id: beer_sales-BR
+  year: 2021
+  as_of: null
+  why: country in Portuguese, mixed-language keyword query; latest version (no date asked)
+
+- id: bikes-nl-2022-keywords
+  question: bike sales nl 2022
+  plan: team
+  expect: value
+  stat_id: bike_sales-NL
+  year: 2022
+  as_of: null
+  why: very short keyword query with country code
+
+- id: cinema-fr-2024-tickets
+  question: How many cinema tickets were sold in France in 2024?
+  plan: api_starter
+  expect: value
+  stat_id: cinema_admissions-FR
+  year: 2024
+  as_of: null
+  why: tickets sold means admissions; not premium
+
+- id: cloud-in-2025-short
+  question: cloud spend india 2025
+  plan: team
+  expect: value
+  stat_id: cloud_spend-IN
+  year: 2025
+  as_of: null
+  why: keyword query, last actual year before forecasts start
+
+- id: coffee-jp-2018-typos
+  question: cofee consumtion japan 2018
+  plan: team
+  expect: value
+  stat_id: coffee_consumption-JP
+  year: 2018
+  as_of: null
+  why: two typos in the statistic words
+
+- id: ecommerce-nl-2021-holland
+  question: What was online shopping revenue in Holland in 2021?
+  plan: api_starter
+  expect: value
+  stat_id: ecommerce_revenue-NL
+  year: 2021
+  as_of: null
+  why: Holland for the Netherlands, online shopping for e-commerce
+
+- id: power-price-se-2023-chatty
+  question: What did a household in Sweden pay per kilowatt hour for power in 2023?
+  plan: team
+  expect: value
+  stat_id: electricity_price-SE
+  year: 2023
+  as_of: null
+  why: power price per kWh paraphrase of household electricity price
+
+- id: evs-es-2022-abbrev
+  question: EVs sold in Spain 2022
+  plan: api_starter
+  expect: value
+  stat_id: ev_sales-ES
+  year: 2022
+  as_of: null
+  why: EV abbreviation for electric cars
+
+- id: mobile-pay-in-2024
+  question: how many people in India use mobile payments, 2024 figure
+  plan: team
+  expect: value
+  stat_id: fintech_users-IN
+  year: 2024
+  as_of: null
+  why: mobile payments paraphrase of digital payment users
+
+- id: games-gb-2020-uk
+  question: Size of the video games market in the UK in 2020?
+  plan: team
+  expect: value
+  stat_id: gaming_revenue-GB
+  year: 2020
+  as_of: null
+  why: UK abbreviation, market size for revenue
+
+- id: gdp-de-2017-formal
+  question: What was the gross domestic product of the Federal Republic of Germany in 2017?
+  plan: api_starter
+  expect: value
+  stat_id: gdp-DE
+  year: 2017
+  as_of: null
+  why: formal country name; statistic has a v2, no date asked so latest
+
+- id: hotel-de-2019-deutschland
+  question: Übernachtungen hotel Deutschland 2019
+  plan: team
+  expect: value
+  stat_id: hotel_nights-DE
+  year: 2019
+  as_of: null
+  why: German words for country and overnight stays
+
+- id: inflation-ca-2022-plain
+  question: What was the inflation rate in Canada in 2022?
+  plan: api_starter
+  expect: value
+  stat_id: inflation_rate-CA
+  year: 2022
+  as_of: null
+  why: plain wording, covered statistic and year
+
+- id: adspend-us-2023-usa
+  question: digital ad spend usa 2023
+  plan: team
+  expect: value
+  stat_id: online_ad_spend-US
+  year: 2023
+  as_of: null
+  why: USA and ad spend abbreviations
+
+- id: renewables-gb-2021-britain
+  question: What share of Britain's electricity came from renewables in 2021?
+  plan: team
+  expect: value
+  stat_id: renewable_share-GB
+  year: 2021
+  as_of: null
+  why: Britain for the United Kingdom
+
+- id: smartphones-us-2025-america
+  question: number of smartphone users in America in 2025
+  plan: api_starter
+  expect: value
+  stat_id: smartphone_users-US
+  year: 2025
+  as_of: null
+  why: America for the United States
+
+- id: streaming-pl-2022-colloquial
+  question: How many people in Poland paid for Netflix-type streaming services in 2022?
+  plan: team
+  expect: value
+  stat_id: streaming_subscribers-PL
+  year: 2022
+  as_of: null
+  why: colloquial description of video streaming subscribers; has v2, latest
+
+- id: jobless-es-2016-first-year
+  question: jobless rate spain 2016
+  plan: team
+  expect: value
+  stat_id: unemployment_rate-ES
+  year: 2016
+  as_of: null
+  why: "hard: first year of the series (boundary), jobless for unemployment"
+
+- id: wine-it-2019-italia
+  question: Quanto vino si beve in Italia? I need the 2019 number
+  plan: team
+  expect: value
+  stat_id: wine_consumption-IT
+  year: 2019
+  as_of: null
+  why: Italian wording for wine consumption and country
+
+- id: smartphones-ww-2028-forecast
+  question: How many smartphone users will there be worldwide in 2028?
+  plan: team
+  expect: value
+  stat_id: smartphone_users-WW
+  year: 2028
+  as_of: null
+  why: "hard: forecast year, worldwide series"
+
+- id: beer-de-2020-enterprise
+  question: German beer sales volume in 2020
+  plan: enterprise
+  expect: value
+  stat_id: beer_sales-DE
+  year: 2020
+  as_of: null
+  why: premium statistic on enterprise plan, so the value is allowed
+
+- id: flights-jp-2018-enterprise
+  question: Japanese air passenger numbers for 2018
+  plan: enterprise
+  expect: value
+  stat_id: air_passengers-JP
+  year: 2018
+  as_of: null
+  why: adjective form of country; premium but enterprise plan
+
+- id: bikes-it-2021-long-chatty
+  question: >-
+    Hi! I'm putting together a few slides for my manager about the bicycle market in Europe and
+    I'm stuck on one number - roughly how many bikes were bought in Italy in 2021? Thanks a lot.
+  plan: api_starter
+  expect: value
+  stat_id: bike_sales-IT
+  year: 2021
+  as_of: null
+  why: long chatty question, Europe mentioned but Italy is asked; has v2, latest
+
+- id: cinema-cn-2019-prc
+  question: PRC cinema attendance 2019
+  plan: team
+  expect: value
+  stat_id: cinema_admissions-CN
+  year: 2019
+  as_of: null
+  why: PRC abbreviation for China, attendance for admissions
+
+- id: inflation-nl-2029-last-year
+  question: What is the projected inflation rate for the Netherlands in 2029?
+  plan: team
+  expect: value
+  stat_id: inflation_rate-NL
+  year: 2029
+  as_of: null
+  why: "hard: last year of the series and a forecast"
+
+- id: unemployment-de-2022-two-places
+  question: We already have France's figure; what was the unemployment rate in Germany in 2022?
+  plan: team
+  expect: value
+  stat_id: unemployment_rate-DE
+  year: 2022
+  as_of: null
+  why: "hard: two places in one question, Germany is the one asked"
+
+- id: games-se-2023-vienna-colleague
+  question: A colleague in Vienna asked me how much people in Sweden spent on video games in 2023
+  plan: team
+  expect: value
+  stat_id: gaming_revenue-SE
+  year: 2023
+  as_of: null
+  why: "hard: an uncovered city (Vienna) appears but Sweden is asked; has v2, latest"
+
+- id: evs-us-2024-enterprise
+  question: how many EVs did Americans buy in 2024
+  plan: enterprise
+  expect: value
+  stat_id: ev_sales-US
+  year: 2024
+  as_of: null
+  why: premium statistic on enterprise; has v2, no date so latest
+
+- id: gdp-ww-2026-forecast-enterprise
+  question: global GDP 2026
+  plan: enterprise
+  expect: value
+  stat_id: gdp-WW
+  year: 2026
+  as_of: null
+  why: "hard: global for worldwide, first forecast year, premium on enterprise"
+
+- id: smartphones-br-2020-grammar
+  question: how many smartphones users brazil have in 2020
+  plan: team
+  expect: value
+  stat_id: smartphone_users-BR
+  year: 2020
+  as_of: null
+  why: broken grammar
+
+# ---------------------------------------------------------------- as of a publication date
+- id: evs-de-2023-asof-nov-2025
+  question: What did you publish for German electric car sales in 2023, as it stood on 15 November 2025?
+  plan: team
+  expect: value
+  stat_id: ev_sales-DE
+  year: 2023
+  as_of: 2025-11-15
+  why: date between v1 (2025-07-06) and v2 (2026-01-24), so v1
+
+- id: inflation-us-2024-asof-dec-2025
+  question: US inflation for 2024 as published on 1 Dec 2025
+  plan: api_starter
+  expect: value
+  stat_id: inflation_rate-US
+  year: 2024
+  as_of: 2025-12-01
+  why: date between v1 (2025-03-29) and v2 (2026-02-18), so v1
+
+- id: gdp-jp-2022-asof-jun-2025
+  question: Our report from 30 June 2025 quoted Japan's 2022 GDP - what was the figure you had out then?
+  plan: team
+  expect: value
+  stat_id: gdp-JP
+  year: 2022
+  as_of: 2025-06-30
+  why: date between v1 (2024-11-13) and v2 (2026-03-12), so v1
+
+- id: beer-gb-2021-asof-day-before-v2
+  question: UK beer sales 2021, the version that was live on 14 February 2026
+  plan: enterprise
+  expect: value
+  stat_id: beer_sales-GB
+  year: 2021
+  as_of: 2026-02-14
+  why: "hard: one day before v2 (2026-02-15), so still v1"
+
+- id: payments-de-2020-asof-sep-2025
+  question: Digital payment users in Germany in 2020 as of September 1st, 2025
+  plan: enterprise
+  expect: value
+  stat_id: fintech_users-DE
+  year: 2020
+  as_of: 2025-09-01
+  why: premium on enterprise; date between v1 (2024-12-18) and v2 (2026-01-25), so v1
+
+# ---------------------------------------------------------------- no_data
+- id: evs-norway-2023
+  question: How many electric cars were sold in Norway in 2023?
+  plan: enterprise
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: Norway is not in the catalogue
+
+- id: gdp-mexico-2022
+  question: mexico gdp 2022
+  plan: team
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: Mexico is not in the catalogue
+
+- id: coffee-switzerland-2020
+  question: How much coffee did the Swiss drink in 2020?
+  plan: api_starter
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: Switzerland is not in the catalogue
+
+- id: unemployment-korea-2024
+  question: unemployment rate South Korea 2024
+  plan: team
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: South Korea is not in the catalogue
+
+- id: smartphones-austria-2021
+  question: Smartphone-Nutzer in Österreich 2021
+  plan: enterprise
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: Austria (in German) is not in the catalogue; must not fall back to Germany or Australia
+
+- id: inflation-de-2015-before-series
+  question: What was inflation in Germany in 2015?
+  plan: team
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: "hard: one year before the series starts (2016)"
+
+- id: streaming-ca-2030-after-series
+  question: How many video streaming subscribers will Canada have in 2030?
+  plan: team
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: "hard: one year after the series ends (2029)"
+
+- id: wine-fr-2014-before-series
+  question: french wine consumption 2014
+  plan: enterprise
+  expect: no_data
+  stat_id: null
+  year: null
+  as_of: null
+  why: "hard: year before the series starts; premium statistic but enterprise plan, so no_data not not_entitled"
+
+# ---------------------------------------------------------------- not_entitled
+- id: flights-de-2019-team
+  question: Air passengers in Germany 2019
+  plan: team
+  expect: not_entitled
+  stat_id: air_passengers-DE
+  year: 2019
+  as_of: null
+  why: premium statistic, team plan
+
+- id: cinema-us-2022-starter
+  question: how many movie theater visits were there in the US in 2022
+  plan: api_starter
+  expect: not_entitled
+  stat_id: cinema_admissions-US
+  year: 2022
+  as_of: null
+  why: premium statistic, api_starter plan; movie theater visits for admissions
+
+- id: ecommerce-gb-2024-team
+  question: UK e-commerce revenue 2024
+  plan: team
+  expect: not_entitled
+  stat_id: ecommerce_revenue-GB
+  year: 2024
+  as_of: null
+  why: premium statistic, team plan
+
+- id: power-price-de-2025-starter
+  question: Strompreis Haushalte Deutschland 2025
+  plan: api_starter
+  expect: not_entitled
+  stat_id: electricity_price-DE
+  year: 2025
+  as_of: null
+  why: premium statistic asked in German, api_starter plan
+
+- id: gdp-gb-2023-team
+  question: What was the GDP of the United Kingdom in 2023?
+  plan: team
+  expect: not_entitled
+  stat_id: gdp-GB
+  year: 2023
+  as_of: null
+  why: premium statistic, team plan
+
+- id: smartphones-de-2021-team
+  question: number of smartphone users germany 2021
+  plan: team
+  expect: not_entitled
+  stat_id: smartphone_users-DE
+  year: 2021
+  as_of: null
+  why: premium statistic, team plan
+
+- id: jobless-it-2024-starter
+  question: Italy jobless rate in 2024?
+  plan: api_starter
+  expect: not_entitled
+  stat_id: unemployment_rate-IT
+  year: 2024
+  as_of: null
+  why: premium statistic, api_starter plan
+
+- id: cloud-ww-2027-forecast-team
+  question: How big will global public cloud spending be in 2027?
+  plan: team
+  expect: not_entitled
+  stat_id: cloud_spend-WW
+  year: 2027
+  as_of: null
+  why: "hard: worldwide forecast year on a premium statistic; non-premium country cloud series must not be substituted"
+
+- id: cinema-gb-2023-britain-team
+  question: box office admissions in Britain last year (2023)
+  plan: team
+  expect: not_entitled
+  stat_id: cinema_admissions-GB
+  year: 2023
+  as_of: null
+  why: "hard: Britain alias plus a relative-time phrase with an explicit year; premium, team plan"

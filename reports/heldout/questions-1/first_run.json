@@ -1,0 +1,907 @@
+{
+  "set": "questions-1",
+  "status": "heldout",
+  "cases": 53,
+  "configs": {
+    "today": {
+      "right": 38,
+      "share": 0.717,
+      "by_expect": {
+        "value": {
+          "cases": 36,
+          "right": 23
+        },
+        "no_data": {
+          "cases": 8,
+          "right": 7
+        },
+        "not_entitled": {
+          "cases": 9,
+          "right": 8
+        }
+      },
+      "results": {
+        "correct": 23,
+        "missed": 6,
+        "wrong_number": 9,
+        "declined_right": 15
+      },
+      "rows": [
+        {
+          "id": "flights-au-2019-colloquial",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "air_passengers-AU",
+          "why": "colloquial wording for air passengers, covered place and year"
+        },
+        {
+          "id": "beer-br-2021-portuguese",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "country in Portuguese, mixed-language keyword query; latest version (no date asked)"
+        },
+        {
+          "id": "bikes-nl-2022-keywords",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "bike_sales-AU",
+          "why": "very short keyword query with country code"
+        },
+        {
+          "id": "cinema-fr-2024-tickets",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "cinema_admissions-FR",
+          "why": "tickets sold means admissions; not premium"
+        },
+        {
+          "id": "cloud-in-2025-short",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "cloud_spend-IN",
+          "why": "keyword query, last actual year before forecasts start"
+        },
+        {
+          "id": "coffee-jp-2018-typos",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "two typos in the statistic words"
+        },
+        {
+          "id": "ecommerce-nl-2021-holland",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "Holland for the Netherlands, online shopping for e-commerce"
+        },
+        {
+          "id": "power-price-se-2023-chatty",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "electricity_price-SE",
+          "why": "power price per kWh paraphrase of household electricity price"
+        },
+        {
+          "id": "evs-es-2022-abbrev",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "EV abbreviation for electric cars"
+        },
+        {
+          "id": "mobile-pay-in-2024",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "smartphone_users-IN",
+          "why": "mobile payments paraphrase of digital payment users"
+        },
+        {
+          "id": "games-gb-2020-uk",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gaming_revenue-GB",
+          "why": "UK abbreviation, market size for revenue"
+        },
+        {
+          "id": "gdp-de-2017-formal",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gdp-DE",
+          "why": "formal country name; statistic has a v2, no date asked so latest"
+        },
+        {
+          "id": "hotel-de-2019-deutschland",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "German words for country and overnight stays"
+        },
+        {
+          "id": "inflation-ca-2022-plain",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "inflation_rate-CA",
+          "why": "plain wording, covered statistic and year"
+        },
+        {
+          "id": "adspend-us-2023-usa",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "online_ad_spend-US",
+          "why": "USA and ad spend abbreviations"
+        },
+        {
+          "id": "renewables-gb-2021-britain",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "renewable_share-AU",
+          "why": "Britain for the United Kingdom"
+        },
+        {
+          "id": "smartphones-us-2025-america",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "smartphone_users-AU",
+          "why": "America for the United States"
+        },
+        {
+          "id": "streaming-pl-2022-colloquial",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "streaming_subscribers-PL",
+          "why": "colloquial description of video streaming subscribers; has v2, latest"
+        },
+        {
+          "id": "jobless-es-2016-first-year",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "unemployment_rate-ES",
+          "why": "hard: first year of the series (boundary), jobless for unemployment"
+        },
+        {
+          "id": "wine-it-2019-italia",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "Italian wording for wine consumption and country"
+        },
+        {
+          "id": "smartphones-ww-2028-forecast",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "smartphone_users-WW",
+          "why": "hard: forecast year, worldwide series"
+        },
+        {
+          "id": "beer-de-2020-enterprise",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "beer_sales-DE",
+          "why": "premium statistic on enterprise plan, so the value is allowed"
+        },
+        {
+          "id": "flights-jp-2018-enterprise",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "air_passengers-JP",
+          "why": "adjective form of country; premium but enterprise plan"
+        },
+        {
+          "id": "bikes-it-2021-long-chatty",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "bike_sales-IT",
+          "why": "long chatty question, Europe mentioned but Italy is asked; has v2, latest"
+        },
+        {
+          "id": "cinema-cn-2019-prc",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "cinema_admissions-AU",
+          "why": "PRC abbreviation for China, attendance for admissions"
+        },
+        {
+          "id": "inflation-nl-2029-last-year",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "inflation_rate-NL",
+          "why": "hard: last year of the series and a forecast"
+        },
+        {
+          "id": "unemployment-de-2022-two-places",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "unemployment_rate-FR",
+          "why": "hard: two places in one question, Germany is the one asked"
+        },
+        {
+          "id": "games-se-2023-vienna-colleague",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gaming_revenue-SE",
+          "why": "hard: an uncovered city (Vienna) appears but Sweden is asked; has v2, latest"
+        },
+        {
+          "id": "evs-us-2024-enterprise",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": null,
+          "why": "premium statistic on enterprise; has v2, no date so latest"
+        },
+        {
+          "id": "gdp-ww-2026-forecast-enterprise",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gdp-WW",
+          "why": "hard: global for worldwide, first forecast year, premium on enterprise"
+        },
+        {
+          "id": "smartphones-br-2020-grammar",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "smartphone_users-BR",
+          "why": "broken grammar"
+        },
+        {
+          "id": "evs-de-2023-asof-nov-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "ev_sales-DE",
+          "why": "date between v1 (2025-07-06) and v2 (2026-01-24), so v1"
+        },
+        {
+          "id": "inflation-us-2024-asof-dec-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "inflation_rate-US",
+          "why": "date between v1 (2025-03-29) and v2 (2026-02-18), so v1"
+        },
+        {
+          "id": "gdp-jp-2022-asof-jun-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gdp-JP",
+          "why": "date between v1 (2024-11-13) and v2 (2026-03-12), so v1"
+        },
+        {
+          "id": "beer-gb-2021-asof-day-before-v2",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "beer_sales-GB",
+          "why": "hard: one day before v2 (2026-02-15), so still v1"
+        },
+        {
+          "id": "payments-de-2020-asof-sep-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "fintech_users-DE",
+          "why": "premium on enterprise; date between v1 (2024-12-18) and v2 (2026-01-25), so v1"
+        },
+        {
+          "id": "evs-norway-2023",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "Norway is not in the catalogue"
+        },
+        {
+          "id": "gdp-mexico-2022",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "Mexico is not in the catalogue"
+        },
+        {
+          "id": "coffee-switzerland-2020",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "Switzerland is not in the catalogue"
+        },
+        {
+          "id": "unemployment-korea-2024",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "South Korea is not in the catalogue"
+        },
+        {
+          "id": "smartphones-austria-2021",
+          "expect": "no_data",
+          "result": "wrong_number",
+          "right": false,
+          "answered": null,
+          "why": "Austria (in German) is not in the catalogue; must not fall back to Germany or Australia"
+        },
+        {
+          "id": "inflation-de-2015-before-series",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: one year before the series starts (2016)"
+        },
+        {
+          "id": "streaming-ca-2030-after-series",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: one year after the series ends (2029)"
+        },
+        {
+          "id": "wine-fr-2014-before-series",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: year before the series starts; premium statistic but enterprise plan, so no_data not not_entitled"
+        },
+        {
+          "id": "flights-de-2019-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "cinema-us-2022-starter",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, api_starter plan; movie theater visits for admissions"
+        },
+        {
+          "id": "ecommerce-gb-2024-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "power-price-de-2025-starter",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic asked in German, api_starter plan"
+        },
+        {
+          "id": "gdp-gb-2023-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "smartphones-de-2021-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "jobless-it-2024-starter",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, api_starter plan"
+        },
+        {
+          "id": "cloud-ww-2027-forecast-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: worldwide forecast year on a premium statistic; non-premium country cloud series must not be substituted"
+        },
+        {
+          "id": "cinema-gb-2023-britain-team",
+          "expect": "not_entitled",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "cinema_admissions-AU",
+          "why": "hard: Britain alias plus a relative-time phrase with an explicit year; premium, team plan"
+        }
+      ]
+    },
+    "plan": {
+      "right": 41,
+      "share": 0.774,
+      "by_expect": {
+        "value": {
+          "cases": 36,
+          "right": 27
+        },
+        "no_data": {
+          "cases": 8,
+          "right": 6
+        },
+        "not_entitled": {
+          "cases": 9,
+          "right": 8
+        }
+      },
+      "results": {
+        "wrong_number": 11,
+        "correct": 27,
+        "missed": 1,
+        "declined_right": 14
+      },
+      "rows": [
+        {
+          "id": "flights-au-2019-colloquial",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "wine_consumption-AU",
+          "why": "colloquial wording for air passengers, covered place and year"
+        },
+        {
+          "id": "beer-br-2021-portuguese",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "beer_sales-BR",
+          "why": "country in Portuguese, mixed-language keyword query; latest version (no date asked)"
+        },
+        {
+          "id": "bikes-nl-2022-keywords",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "bike_sales-AU",
+          "why": "very short keyword query with country code"
+        },
+        {
+          "id": "cinema-fr-2024-tickets",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "cinema_admissions-FR",
+          "why": "tickets sold means admissions; not premium"
+        },
+        {
+          "id": "cloud-in-2025-short",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "cloud_spend-IN",
+          "why": "keyword query, last actual year before forecasts start"
+        },
+        {
+          "id": "coffee-jp-2018-typos",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "wine_consumption-JP",
+          "why": "two typos in the statistic words"
+        },
+        {
+          "id": "ecommerce-nl-2021-holland",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "ecommerce_revenue-NL",
+          "why": "Holland for the Netherlands, online shopping for e-commerce"
+        },
+        {
+          "id": "power-price-se-2023-chatty",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "electricity_price-SE",
+          "why": "power price per kWh paraphrase of household electricity price"
+        },
+        {
+          "id": "evs-es-2022-abbrev",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "bike_sales-ES",
+          "why": "EV abbreviation for electric cars"
+        },
+        {
+          "id": "mobile-pay-in-2024",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "smartphone_users-IN",
+          "why": "mobile payments paraphrase of digital payment users"
+        },
+        {
+          "id": "games-gb-2020-uk",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gaming_revenue-GB",
+          "why": "UK abbreviation, market size for revenue"
+        },
+        {
+          "id": "gdp-de-2017-formal",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gdp-DE",
+          "why": "formal country name; statistic has a v2, no date asked so latest"
+        },
+        {
+          "id": "hotel-de-2019-deutschland",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "hotel_nights-DE",
+          "why": "German words for country and overnight stays"
+        },
+        {
+          "id": "inflation-ca-2022-plain",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "inflation_rate-CA",
+          "why": "plain wording, covered statistic and year"
+        },
+        {
+          "id": "adspend-us-2023-usa",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "online_ad_spend-US",
+          "why": "USA and ad spend abbreviations"
+        },
+        {
+          "id": "renewables-gb-2021-britain",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "renewable_share-GB",
+          "why": "Britain for the United Kingdom"
+        },
+        {
+          "id": "smartphones-us-2025-america",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "smartphone_users-US",
+          "why": "America for the United States"
+        },
+        {
+          "id": "streaming-pl-2022-colloquial",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "streaming_subscribers-PL",
+          "why": "colloquial description of video streaming subscribers; has v2, latest"
+        },
+        {
+          "id": "jobless-es-2016-first-year",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "unemployment_rate-ES",
+          "why": "hard: first year of the series (boundary), jobless for unemployment"
+        },
+        {
+          "id": "wine-it-2019-italia",
+          "expect": "value",
+          "result": "missed",
+          "right": false,
+          "answered": null,
+          "why": "Italian wording for wine consumption and country"
+        },
+        {
+          "id": "smartphones-ww-2028-forecast",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "smartphone_users-WW",
+          "why": "hard: forecast year, worldwide series"
+        },
+        {
+          "id": "beer-de-2020-enterprise",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "beer_sales-DE",
+          "why": "premium statistic on enterprise plan, so the value is allowed"
+        },
+        {
+          "id": "flights-jp-2018-enterprise",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "air_passengers-JP",
+          "why": "adjective form of country; premium but enterprise plan"
+        },
+        {
+          "id": "bikes-it-2021-long-chatty",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "bike_sales-IT",
+          "why": "long chatty question, Europe mentioned but Italy is asked; has v2, latest"
+        },
+        {
+          "id": "cinema-cn-2019-prc",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "cinema_admissions-AU",
+          "why": "PRC abbreviation for China, attendance for admissions"
+        },
+        {
+          "id": "inflation-nl-2029-last-year",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "inflation_rate-NL",
+          "why": "hard: last year of the series and a forecast"
+        },
+        {
+          "id": "unemployment-de-2022-two-places",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": "unemployment_rate-FR",
+          "why": "hard: two places in one question, Germany is the one asked"
+        },
+        {
+          "id": "games-se-2023-vienna-colleague",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gaming_revenue-SE",
+          "why": "hard: an uncovered city (Vienna) appears but Sweden is asked; has v2, latest"
+        },
+        {
+          "id": "evs-us-2024-enterprise",
+          "expect": "value",
+          "result": "wrong_number",
+          "right": false,
+          "answered": null,
+          "why": "premium statistic on enterprise; has v2, no date so latest"
+        },
+        {
+          "id": "gdp-ww-2026-forecast-enterprise",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gdp-WW",
+          "why": "hard: global for worldwide, first forecast year, premium on enterprise"
+        },
+        {
+          "id": "smartphones-br-2020-grammar",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "smartphone_users-BR",
+          "why": "broken grammar"
+        },
+        {
+          "id": "evs-de-2023-asof-nov-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "ev_sales-DE",
+          "why": "date between v1 (2025-07-06) and v2 (2026-01-24), so v1"
+        },
+        {
+          "id": "inflation-us-2024-asof-dec-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "inflation_rate-US",
+          "why": "date between v1 (2025-03-29) and v2 (2026-02-18), so v1"
+        },
+        {
+          "id": "gdp-jp-2022-asof-jun-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "gdp-JP",
+          "why": "date between v1 (2024-11-13) and v2 (2026-03-12), so v1"
+        },
+        {
+          "id": "beer-gb-2021-asof-day-before-v2",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "beer_sales-GB",
+          "why": "hard: one day before v2 (2026-02-15), so still v1"
+        },
+        {
+          "id": "payments-de-2020-asof-sep-2025",
+          "expect": "value",
+          "result": "correct",
+          "right": true,
+          "answered": "fintech_users-DE",
+          "why": "premium on enterprise; date between v1 (2024-12-18) and v2 (2026-01-25), so v1"
+        },
+        {
+          "id": "evs-norway-2023",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "Norway is not in the catalogue"
+        },
+        {
+          "id": "gdp-mexico-2022",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "Mexico is not in the catalogue"
+        },
+        {
+          "id": "coffee-switzerland-2020",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "Switzerland is not in the catalogue"
+        },
+        {
+          "id": "unemployment-korea-2024",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "South Korea is not in the catalogue"
+        },
+        {
+          "id": "smartphones-austria-2021",
+          "expect": "no_data",
+          "result": "wrong_number",
+          "right": false,
+          "answered": null,
+          "why": "Austria (in German) is not in the catalogue; must not fall back to Germany or Australia"
+        },
+        {
+          "id": "inflation-de-2015-before-series",
+          "expect": "no_data",
+          "result": "wrong_number",
+          "right": false,
+          "answered": null,
+          "why": "hard: one year before the series starts (2016)"
+        },
+        {
+          "id": "streaming-ca-2030-after-series",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: one year after the series ends (2029)"
+        },
+        {
+          "id": "wine-fr-2014-before-series",
+          "expect": "no_data",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: year before the series starts; premium statistic but enterprise plan, so no_data not not_entitled"
+        },
+        {
+          "id": "flights-de-2019-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "cinema-us-2022-starter",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, api_starter plan; movie theater visits for admissions"
+        },
+        {
+          "id": "ecommerce-gb-2024-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "power-price-de-2025-starter",
+          "expect": "not_entitled",
+          "result": "wrong_number",
+          "right": false,
+          "answered": null,
+          "why": "premium statistic asked in German, api_starter plan"
+        },
+        {
+          "id": "gdp-gb-2023-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "smartphones-de-2021-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, team plan"
+        },
+        {
+          "id": "jobless-it-2024-starter",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "premium statistic, api_starter plan"
+        },
+        {
+          "id": "cloud-ww-2027-forecast-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: worldwide forecast year on a premium statistic; non-premium country cloud series must not be substituted"
+        },
+        {
+          "id": "cinema-gb-2023-britain-team",
+          "expect": "not_entitled",
+          "result": "declined_right",
+          "right": true,
+          "answered": null,
+          "why": "hard: Britain alias plus a relative-time phrase with an explicit year; premium, team plan"
+        }
+      ]
+    }
+  }
+}
