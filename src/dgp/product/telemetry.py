@@ -116,7 +116,7 @@ def metrics(telemetry: Path | None = None, warehouse: Path | None = None, scale:
     searches = q("select count(*) from usage where tool='search'")[0][0]
     fetches = q("select count(*) from usage where tool='get_statistic'")[0][0]
     zero = q("select count(*) from usage where tool='search' and results=0")[0][0]
-    status = dict(q("select status, count(*) from usage where tool='get_statistic' group by 1"))
+    status = dict(q("select status, count(*) from usage where tool='get_statistic' group by 1 order by 1"))
     ok = status.get("ok", 0)
     sess = q("select count(distinct session), count(*) from sessions")[0]
     rephrased = q("select count(*) from (select session from sessions group by 1 having count(*) > 1)")[0][0]
@@ -127,7 +127,7 @@ def metrics(telemetry: Path | None = None, warehouse: Path | None = None, scale:
     lo, hi = wilson(int(right), int(audited))
     tickets = q("select count(*) from tickets")[0][0]
     top_ticketed = q("select stat_id, count(*) n from tickets group by 1 order by n desc, stat_id limit 5")
-    clients = dict(q("select client, count(distinct session) from sessions group by 1 order by 2 desc"))
+    clients = dict(q("select client, count(distinct session) from sessions group by 1 order by 2 desc, 1"))
     budget = q("select count(*) from sessions where status='budget_exhausted'")[0][0]
     con.close()
     out = {
@@ -169,7 +169,7 @@ def producers(warehouse: Path) -> dict[str, Any]:
     con = duckdb.connect(str(warehouse), read_only=True)
     rows = con.execute(
         "select delivery_id, topic, accepted, problems, stat_ids, version, delivered_at "
-        "from deliveries order by delivered_at"
+        "from deliveries order by delivered_at, delivery_id"
     ).fetchall()
     con.close()
     refused = [r for r in rows if not r[2]]

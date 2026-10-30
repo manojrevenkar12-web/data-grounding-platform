@@ -6,7 +6,6 @@ from __future__ import annotations
 import json
 import operator
 import shutil
-import time
 from datetime import timedelta
 from typing import Any
 
@@ -178,7 +177,6 @@ def gate(results: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def run(log: Any = print) -> dict[str, Any]:
-    t = time.perf_counter()
     built = build_world(log)
     stats = catalogue.build()
     qs = world.questions(stats)
@@ -220,7 +218,6 @@ def run(log: Any = print) -> dict[str, Any]:
         "plan": combined,
         "represents": rep,
         "accounts": len(world.accounts()),
-        "seconds": round(time.perf_counter() - t, 1),
     }
     ns = results["truth"]["north_star_per_week"]
     lo, hi = observed["north_star"]["interval_per_week"]

@@ -22,9 +22,9 @@
       "rephrased_share": 0.0783,
       "fetch_ok_share": 0.8984,
       "fetch_status": {
+        "no_such_year": 1118,
         "not_entitled": 2014,
-        "ok": 27698,
-        "no_such_year": 1118
+        "ok": 27698
       }
     },
     "guardrails": {
@@ -1220,7 +1220,6 @@
   },
   "represents": 10,
   "accounts": 700,
-  "seconds": 52.4,
   "gate": [
     {
       "name": "refused exactly the deliveries that would break consumers",
