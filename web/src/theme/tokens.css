@@ -1,0 +1,67 @@
+/* Design tokens. Every colour, size and duration in the app comes from here. */
+:root {
+  color-scheme: light dark;
+  --paper: #f7f8fa;
+  --panel: #ffffff;
+  --ink: #1a1f2b;
+  --muted: #586172;
+  --rule: #dde1e7;
+  --verified: #0f7b5f;      /* right number, cited */
+  --verified-soft: #d6efe6;
+  --wrong: #b93a26;         /* a wrong number */
+  --wrong-soft: #f7dfd9;
+  --measured: #0f7b5f;      /* evidence: measured offline */
+  --modelled: #9a5c00;      /* evidence: modelled */
+  --modelled-soft: #f5e7cc;
+  --demand: #6a4caf;        /* evidence: demand signal only */
+  --demand-soft: #e9e2f7;
+  --zero: #8a93a3;
+  --focus: #1d4ed8;
+
+  --font: "Onest Variable", system-ui, sans-serif;
+
+  --step--1: 0.8125rem;
+  --step-0: 0.9375rem;
+  --step-1: 1.125rem;
+  --step-2: 1.5rem;
+  --step-3: 2.125rem;
+  --step-4: 3.5rem;
+  --leading: 1.55;
+  --leading-tight: 1.12;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+
+  --radius-s: 3px;
+  --radius-m: 8px;
+  --measure: 66ch;
+  --page: 1160px;
+  --row: 44px;              /* one bet in the forest plot */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #10141b;
+    --panel: #171c25;
+    --ink: #e6e9ef;
+    --muted: #9aa3b2;
+    --rule: #2a313d;
+    --verified: #4cc49b;
+    --verified-soft: #15392e;
+    --wrong: #f08a72;
+    --wrong-soft: #45231b;
+    --measured: #4cc49b;
+    --modelled: #e2a64a;
+    --modelled-soft: #3d2f15;
+    --demand: #a991ec;
+    --demand-soft: #2c2445;
+    --zero: #6b7483;
+    --focus: #8ab4ff;
+  }
+}
